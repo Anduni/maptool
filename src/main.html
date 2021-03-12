@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+  <meta charset="UTF-8">
+  <title>vectile-map-loader</title>
+  <link rel="stylesheet" href="main.css">
+  <script defer src="main.js"></script>
+</head>
+
+
+<body>
+
+  <div id="screen-main">
+    
+    <div id="container-sample">
+      <p>start</p>
+      <div class="tile-container">
+        <input type="text" id="iStartX">
+        <input type="text" id="iStartY">
+      </div>
+
+
+      <p>end</p>
+      <div class="tile-container">
+        <input type="text" id="iEndX">
+        <input type="text" id="iEndY">
+      </div>
+
+
+      <p>zoom</p>
+      <div class="tile-container">
+        <input type="text" id="iZoom">
+      </div>
+    </div>
+
+    <div id="container-go">
+      <button id="btnLoad" onclick="onLoadTile()">load</button>
+
+      <div class="spacer"></div>
+
+      <div id="progress-bar">
+        <div id="progress-bar-fill"></div>
+      </div>
+    </div>
+
+  </div>
+
+
+  
+
+</body>
+
+
+</html>
