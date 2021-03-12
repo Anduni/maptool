@@ -1,20 +1,20 @@
 const { createWriteStream, existsSync } = require('fs');
 const { updateProgressBar } = require('../main');
 const { Config } = require('../util/service');
-require('fs');
+const fs = require('fs');
 const https = require('https');
+const { writeFile } = require('fs-extra');
 
 function downloadTile (path, zoom, tile) {
-    zoom = 17;
-    tile = {x: 69642, y: 44731};
+    // zoom = 17;
+    // tile = {x: 69642, y: 44731};
 
     const filepath = `${path}/${tile.x}_${tile.y}_${zoom}.pbf`;
     const serverpath = `${Config().SERVER}/${zoom}/${tile.x}/${tile.y}.vector.pbf?access_token=${Config().TOKEN}`;
     
-    console.log(serverpath);
-
+    // console.log(serverpath);
     return sleep(100); // download job dummy
-
+    
     return new Promise ((resolve) => {
         if (existsSync(filepath)) {
             console.log('TILE ' + x + ', ' + y + ' -- already downloaded');
@@ -32,25 +32,21 @@ function downloadTile (path, zoom, tile) {
                 // callback ------------------------------------ //
                 resolve();
             });
+            response.on('error', () => {
+                console.log('error while downloading tile');
+                resolve();
+            });
         });
     });
-
+    
+    /*
+    write chunks to data object
+    save data object as .pbf file when done 
+    */
+    // writeFile('src/data/output', data);
 }
 
-
-async function download (tilebuffer, zoom, path) {
-    for (i = 0; i < tilebuffer.length; i++) {
-        await downloadTile(path, zoom, tilebuffer[i]);
-        onProgress((i + 1) / tilebuffer.length * 100);
-    }
-}
-
-
-function onProgress (progress) { updateProgressBar(progress) }
-
+// for dummy
 const sleep = ms => { return new Promise(resolve => setTimeout(resolve, ms)); }
 
-
-module.exports = {
-    DOWNLOAD : download,
-}
+module.exports = {downloadTile : downloadTile}

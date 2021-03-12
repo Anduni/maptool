@@ -1,34 +1,32 @@
-const { go } = require('./system/system');
-const service = require('./util/service');
+const fs = require('fs');
 
+const input_start_x = document.getElementById('input_start_x');
+const input_start_y = document.getElementById('input_start_y');
+const input_end_x = document.getElementById('input_end_x');
+const input_end_y = document.getElementById('input_end_y');
+const input_zoom = document.getElementById('input_zoom');
+
+const input_btn_load = document.getElementById('input_btn_load');
+input_btn_load.addEventListener('click', getInput);
 
 const progressbar = document.getElementById('progress-bar-fill');
 
+var sample = JSON.parse(fs.readFileSync('src/settings/sample.json'));
 
-function onLoadTile () {
-    let settings = {
-        
-        start : {
-            x : document.getElementById('iStartX').value,
-            y : document.getElementById('iStartY').value
-        },
-        end : {
-            x : document.getElementById('iEndX').value,
-            y : document.getElementById('iEndY').value
-        },
-        zoom : document.getElementById('iZoom').value
-    }
+input_start_x.value = sample.start.x;
+input_start_y.value = sample.start.y;
+input_end_x.value = sample.end.x;
+input_end_y.value = sample.end.y;
+input_zoom.value = sample.zoom;
 
-    // settings.start.x = 69642;
-    // settings.start.y = 69643;
-    // settings.end.x = 44731;
-    // settings.end.y = 44731;
-    // settings.zoom = 17;
-
-    service.samplesettings = settings;
-    console.log (service.samplesettings);
-
-    go(settings);    
+function getInput () {
+    sample.start.x = input_start_x.value;
+    sample.start.y = input_start_y.value;
+    sample.end.x = input_end_x.value;
+    sample.end.y = input_end_y.value;
+    sample.zoom = input_zoom.value;
+    fs.writeFile('src/settings/sample.json', JSON.stringify(sample), function(err) {} );
+    // console.log (sample);
 }
 
 function updateProgressBar (progress) {

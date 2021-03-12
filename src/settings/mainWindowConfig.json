@@ -1,0 +1,7 @@
+{
+    "width": 1240,
+    "height": 720,
+    "webPreferences": {
+        "nodeIntegration": true
+    }
+}
