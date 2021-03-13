@@ -1,37 +1,32 @@
-module.exports = {
-    Config : Config,
-    CalculateTileBuffer : CalculateTileBuffer,
-}
-
 const fs = require('fs');
+const { stat } = require('fs-extra');
 
-var config = {};
-
-function Config () {
-    return config;
+module.exports = {
+    Status : Status,
+    SetStatus : SetStatus,
+    Config : Config,
+    Sample : Sample,
+    updateConfig : updateConfig,
+    updateSample : updateSample,
 }
 
-function LoadConfig () {
-    config = JSON.parse(fs.readFileSync('src/settings/config.json'));
-    return config;
+// 0 ready; 1 loading; 2 sampling; -1 frozen
+var status = 0;
+function Status () {return status;}
+function SetStatus (id) {
+    status = id;
 }
 
-function SaveConfig (_config) {
-    config = _config;
-    fs.writeFileSync('src/settings/config.json', JSON.stringify(config));
+var config = JSON.parse(fs.readFileSync('src/settings/config.json'));
+function Config () {return config;}
+function updateConfig (data) {
+    config = data;
+    fs.writeFileSync('src/settings/config.json', JSON.stringify(data));
 }
 
-function CalculateTileBuffer (startID, endID) {
-    var tileBuffer = [];
-    for (y = startID.y; y <= endID.y; y++) {
-        for (x = startID.x; x <= endID.x; x++) {
-            tile = {x : x, y : y,};
-            tileBuffer.push(tile);
-        }
-    }
-    console.log(`tilebuffer: ` + tileBuffer.length)
-    return tileBuffer;
+var sample = JSON.parse(fs.readFileSync('src/settings/sample.json'));
+function Sample () {return sample;}
+function updateSample (data) {
+    sample = data;
+    fs.writeFileSync('src/settings/sample.json', JSON.stringify(data));
 }
-
-// init 
-LoadConfig();

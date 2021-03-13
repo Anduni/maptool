@@ -16,9 +16,9 @@ const init = () => {createWindow(mainWindowConfig);}
 
 function createWindow (windowConfig) {
   const w = new BrowserWindow(windowConfig);
-  // w.webContents.openDevTools();
-  w.setMenuBarVisibility(false);
   w.loadFile(path.join(__dirname, 'main.html'));
+  w.webContents.openDevTools();
+  w.setMenuBarVisibility(false);
   return w;
 }
 

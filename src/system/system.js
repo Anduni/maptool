@@ -1,26 +1,21 @@
-const { CalculateTileBuffer } = require("../util/service");
-const loader = require("./loader");
-const { DOWNLOAD } = require("./loader");
-const { SAMPLE } = require("./sampler");
-
-
-async function go (settings) {
-    var tilebuffer = CalculateTileBuffer(settings.start, settings.end);
-    console.log(tilebuffer);
-
-    await DOWNLOAD(tilebuffer, settings.zoom, 'src/data/buffer');
-    SAMPLE(tilebuffer[0], settings.zoom, 'src/data/buffer')
-}
-
-
-
-async function downloadBuffer (tilebuffer, zoom, path) {
-    for (i = 0; i < tilebuffer.length; i++) {
-        await loader.downloadTile(path, zoom, tilebuffer[i]);
-        onProgress((i + 1) / tilebuffer.length * 100);
-    }
-}
+const { Sample, SetStatus } = require("../util/service");
+const { createStack } = require("../util/tiles");
+const { downloadTile } = require("./loader");
 
 module.exports = {
-    go : go,
+    StartSampleJob : StartSampleJob,
+}
+
+function StartSampleJob() {
+    SetStatus(1);
+    downloadBuffer(createStack(Sample()));
+}
+
+async function downloadBuffer (stack) {
+    for (i = 0; i < stack.length; i++) {
+        await downloadTile(stack[i]);
+        console.log(`${(i + 1) / stack.length * 100}% done`);
+        // onProgress((i + 1) / tilebuffer.length * 100);
+    }
+    SetStatus(0);
 }
