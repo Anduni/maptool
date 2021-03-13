@@ -28,10 +28,9 @@ function getInput () {
     sample.end.x = input_end_x.value;
     sample.end.y = input_end_y.value;
     sample.zoom = input_zoom.value;
-    updateSample(sample);
 
+    updateSample(sample);
     StartSampleJob();
-    // console.log (sample);
 }
 
 function updateProgressBar (progress) {

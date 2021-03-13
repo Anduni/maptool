@@ -1,3 +1,4 @@
+const main = require("../main");
 const { Sample, SetStatus } = require("../util/service");
 const { createStack } = require("../util/tiles");
 const { downloadTile } = require("./loader");
@@ -15,7 +16,7 @@ async function downloadBuffer (stack) {
     for (i = 0; i < stack.length; i++) {
         await downloadTile(stack[i]);
         console.log(`${(i + 1) / stack.length * 100}% done`);
-        // onProgress((i + 1) / tilebuffer.length * 100);
+        main.updateProgressBar((i + 1) / stack.length * 100);
     }
     SetStatus(0);
 }
