@@ -1,7 +1,5 @@
 const VectorTile = require("@mapbox/vector-tile/lib/vectortile");
 const { readFileSync } = require("fs");
-const Pbf = require("pbf");
-const { gunzip } = require("zlib");
 const { Config } = require("../util/service");
 require('zlib');
 require('pbf');

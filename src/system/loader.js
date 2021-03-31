@@ -2,19 +2,18 @@ const { createWriteStream, existsSync } = require('fs');
 const { Config } = require('../util/service');
 const https = require('https');
 
-function downloadTile (tile) {
-    // const filepath = `${path}/${tile.x}_${tile.y}_${tile.z}.pbf`;
-    const serverpath = `${Config().SERVER}/${tile.z}/${tile.x}/${tile.y}.vector.pbf?access_token=${Config().TOKEN}`;
-    // console.log(serverpath);
-    
-    var data = "";
-    return new Promise ((resolve) => {
-        setTimeout(resolve, 100);
-        data += "pbf data";
-    });
+module.exports = {downloadTile : downloadTile}
 
-    return sleep(100); // download job dummy
+function downloadTile (tile) {
+    const filepath = `src/data/buffer/${tile.x}_${tile.y}_${tile.z}.pbf`;
+    const serverpath = `${Config().SERVER}/${tile.z}/${tile.x}/${tile.y}.vector.pbf?access_token=${Config().TOKEN}`;
     
+    // return new Promise ((resolve) => {
+    //     var data = "";
+    //     data += "pbf_data";
+    //     setTimeout(resolve, 1000);
+    // });
+
     return new Promise ((resolve) => {
         if (existsSync(filepath)) {
             console.log('TILE ' + x + ', ' + y + ' -- already downloaded');
@@ -38,9 +37,4 @@ function downloadTile (tile) {
             });
         });
     });
-
 }
-
-const sleep = ms => { return new Promise(resolve => setTimeout(resolve, ms)); }
-
-module.exports = {downloadTile : downloadTile}

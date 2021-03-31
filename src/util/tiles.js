@@ -2,6 +2,11 @@ module.exports = {
     createStack : createStack,
 }
 
+/**
+ * 
+ * @param {sample} sample 
+ * @returns stack of all tiles in the sample
+ */
 function createStack (sample) {
     var stack = [];
     for (y = sample.start.y; y <= sample.end.y; y++) {
@@ -17,3 +22,5 @@ function createStack (sample) {
     console.log(`stack size: ${stack.length}`);
     return stack;
 }
+
+createStack

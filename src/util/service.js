@@ -1,5 +1,4 @@
 const fs = require('fs');
-const { stat } = require('fs-extra');
 
 module.exports = {
     Status : Status,
@@ -29,4 +28,5 @@ function Sample () {return sample;}
 function updateSample (data) {
     sample = data;
     fs.writeFileSync('src/settings/sample.json', JSON.stringify(data));
+    console.log(sample);
 }

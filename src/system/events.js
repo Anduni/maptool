@@ -1,0 +1,1 @@
+// var newSampleEvent = document.createEvent
