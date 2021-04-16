@@ -10,13 +10,13 @@ function downloadTile (tile) {
 
     return new Promise ((resolve) => {
         if (existsSync(filepath)) {
-            setTimeout(resolve, 1000);
+            setTimeout(resolve, 100);
             console.log('TILE ' + x + ', ' + y + ' -- already downloaded');
             return;
         }
 
-        console.log('-- DOWNLOAD LOCKED');
-        return;
+        // console.log('-- DOWNLOAD LOCKED');
+        // return;
 
         https.get(serverpath, (response) => {
             let file = createWriteStream(filepath);

@@ -1,0 +1,7 @@
+= Todo
+
+== main
+
+- korrekter file output
+- korrekte skalierung der punkte 
+- filtern nach typ

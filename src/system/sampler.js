@@ -1,11 +1,10 @@
 const VectorTile = require("@mapbox/vector-tile/lib/vectortile");
-const { BrowserWindow } = require("electron");
-const { json } = require("express");
 const { readFileSync, writeFileSync } = require("fs");
 const Pbf = require("pbf");
 const { toPath } = require("svg-points");
 const { gunzip } = require("zlib");
 const { Config } = require("../util/service");
+const { svgDoc, svgGroup, svgPath } = require("./writer");
 
 
 module.exports = {
@@ -111,7 +110,6 @@ function sampleTile (id, data) {
     });
 
 }
-
 function sample (id, zoom, path) {
     zoom = 17;
     id = {x: 69642, y: 44731};
@@ -126,7 +124,6 @@ function sample (id, zoom, path) {
         });
     });
 }
-
 function parseTile (buffer) {
     return new Promise ((resolve) => {
         gunzip(buffer, (err, obuffer) => {
@@ -138,6 +135,7 @@ function parseTile (buffer) {
         })
     });
 }
+
 
 function neoSampleTile (tile) 
 {
@@ -153,87 +151,100 @@ function neoSampleTile (tile)
         */
 
         console.log('--starting extract');
-        extract(data);
+        extract(data, tile);
     });
 }
 
+
 var schema = [
-    "road",
-    "building"
+    "road"
 ]
 
-var schema_full = {
-    layer : {
-        feature : "test"
+var types = [
+    "path",
+    "footway",
+    "blabla"
+]
+
+function extract (data, id) {
+
+    const OFFSET = {
+        x: SCALE * (id.x - CENTER.x), 
+        y: SCALE * (id.y - CENTER.y)
+    };
+
+    const transform = {
+        scale: 0.01, // --! replace with config value
+        offset: { 
+            x: 0,
+            y: 0
+        } // --! replace with dynamic value
     }
-}
 
-
-function extract (tiledata) {
     var content = '';
     
     schema.forEach((layertype) => {
-        // content[layertype] = {};
-
         var layer_content = '';
-        for (i=0; i<tiledata.layers[layertype].length; i++) {
 
-            // content[layertype][`feature ${i}`] = tiledata.layers[layertype].feature(i).properties.type;
+        var Data = {};
+        Data['other'] = ''; // init 'other' to be fallback category
 
-            var feature_geometry = tiledata.layers[layertype].feature(i).loadGeometry();
-            
-            var feature_content = '';
-            
-            feature_geometry.forEach((segment) => {
-                var path = toPath(segment);
-                feature_content += svgPath(`${layertype} feature ${i} {path id}`, path);
-            });
+        // -- sample all features in layertype --
+        for (i = 0; i < data.layers[layertype].length; i++) 
+        {
+            const feature = data.layers[layertype].feature(i);
 
-            layer_content += svgGroup(`feature ${i}`, feature_content, '\t \t');
-            
-            // var geo = tiledata.layers[layertype][i].feature(0).loadGeometry();
-            // var svg_element = genereateElement(geo);
-            
-            // content[layertype][`feature ${i}`] = feature_content;
+            const Class = feature.properties.type;
+            const Geometry = feature.loadGeometry();
+
+            // extract feature geometry to svg paths
+            var featureContent = buildGeometry(Geometry, transform);
+            // create svg group of current feature with all its paths
+            var svgFeatureContent = svgGroup(`feature${feature.id}`, featureContent, '\t\t\t');
+
+            // if features class exists in filter push to category
+            // else push to 'other'
+            if (types.indexOf(Class) > -1) {
+                if (!Data[Class]) {Data[Class] = '';}
+                Data[Class] += svgFeatureContent;
+            } 
+            else {
+                Data['other'] += svgFeatureContent;
+            }
         }
+        
+        // -- add all categories to their own group --
+        types.forEach((type) => {
+            if (Data[type]) layer_content += svgGroup(type, Data[type], '\t\t');
+        });
 
+        // visual guide
+        layer_content += `<!--break--> \n`;
+
+        // -- add all uncategorized features to group 'other' --
+        layer_content += svgGroup('other', Data['other'], '\t\t');
+
+        // -- add layer content to layergroup --
         content += svgGroup(layertype, layer_content, '\t');
     });
 
-    // writeFileSync(`src/data/output/content.json`, JSON.stringify(content, null, 2));
     writeFileSync(`src/data/output/feature.svg`, svgDoc('document', content, 4096, 4096));
-
     console.log('--finished extract');
 }
 
 
-var nl = '\n';
-// var tab = '\t';
+function buildGeometry (geometry, transform) {
+    var content = '';
+    geometry.forEach((segment) => {
 
+        segment.map((point) => {
+            point.x = point.x;
+            point.y = point.y;
+        });
 
-// var svg;
-// var group;
+        var path = toPath(segment);
+        content += svgPath(`path${geometry.indexOf(segment)}`, path, '\t\t\t\t');
+    });
 
-function svgDoc (id, content, width, height) { 
-    var svg_content = '';
-    svg_content += `<svg id='${id}' width='${width}' height='${height}'>` + nl;
-    svg_content += content;
-    svg_content += `</svg>`
-    return svg_content; 
-}
-
-function svgGroup (id, content, indent) {
-    var group_content = '';
-    group_content += indent + `<g id='${id}'>` + nl;
-    group_content += content;
-    group_content += indent + `</g>` + nl;
-    return group_content ; 
-}
-
-function svgPath (id, content, stroke=1) { 
-    return '\t \t \t' + '<path id="' + id + '"' + ' stroke="black" stroke-width="' + stroke + '" fill="none"' + ' d="' + content + '" />' + nl;
-}
-
-function toShape (geo) {
-
+    return content;
 }
