@@ -7,14 +7,24 @@
   <script defer src="renderer.js"></script>
 </head>
 <body>
+
+  <div id="settings-screen">
+  </div>
+  
   <div id="screen-main">
-    start
     <div>
+      token
+      <input type="token" id="input_token">
+    </div>
+    <!-- spacing -->
+    <br>
+    <div>
+      start
       x <input type="text" id="input_start_x">
       y <input type="text" id="input_start_y">
     </div>
-    end
     <div>
+      end 
       x <input type="text" id="input_end_x">
       y <input type="text" id="input_end_y">
     </div>
@@ -36,5 +46,6 @@
       </div>
     </div>
   </div>
+
 </body>
 </html>

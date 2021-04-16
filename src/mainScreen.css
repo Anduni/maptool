@@ -25,5 +25,8 @@ button {
   height: 100%;
   width: 0%;
   background-color: #aaa;
+}
+
+.smooth {
   transition: 0.2s;
 }

@@ -1,0 +1,603 @@
+<svg id='document' width='4096' height='4096'>
+	<g id='road'>
+	 	<g id='feature 0'>
+	 	 	<path id="road feature 0 {path id}" stroke="black" stroke-width="1" fill="none" d="" />
+	 	</g>
+	 	<g id='feature 1'>
+	 	 	<path id="road feature 1 {path id}" stroke="black" stroke-width="1" fill="none" d="M3960,-1990L3994,-2502L3900,-2618L3992,-4080" />
+	 	 	<path id="road feature 1 {path id}" stroke="black" stroke-width="1" fill="none" d="M3960,-1990L3884,-1910L3818,-1804L3684,-8L3564,488L3418,984L2860,2254L2090,3402L1312,4352" />
+	 	</g>
+	 	<g id='feature 2'>
+	 	 	<path id="road feature 2 {path id}" stroke="black" stroke-width="1" fill="none" d="M5910,202L4748,1310L4208,1982L3774,2670L4038,2990" />
+	 	 	<path id="road feature 2 {path id}" stroke="black" stroke-width="1" fill="none" d="M2254,2776L2350,2824" />
+	 	 	<path id="road feature 2 {path id}" stroke="black" stroke-width="1" fill="none" d="M3098,1646L3006,1610" />
+	 	</g>
+	 	<g id='feature 3'>
+	 	 	<path id="road feature 3 {path id}" stroke="black" stroke-width="1" fill="none" d="M3530,2700L3322,2578" />
+	 	</g>
+	 	<g id='feature 4'>
+	 	 	<path id="road feature 4 {path id}" stroke="black" stroke-width="1" fill="none" d="M3960,-1990L6006,-2750L6352,-2868L6560,-2854L6958,-3024L8176,-3502" />
+	 	</g>
+	 	<g id='feature 5'>
+	 	 	<path id="road feature 5 {path id}" stroke="black" stroke-width="1" fill="none" d="M2892,-32L2768,-732L2630,-704" />
+	 	 	<path id="road feature 5 {path id}" stroke="black" stroke-width="1" fill="none" d="M6096,-2858L6018,-3042" />
+	 	 	<path id="road feature 5 {path id}" stroke="black" stroke-width="1" fill="none" d="M7144,-3274L7472,-2556" />
+	 	 	<path id="road feature 5 {path id}" stroke="black" stroke-width="1" fill="none" d="M6570,3308L6316,3314L6164,3342L6012,3416L5816,3584L5782,3786L5870,3940L6078,4114V4226" />
+	 	 	<path id="road feature 5 {path id}" stroke="black" stroke-width="1" fill="none" d="M5810,3834L5698,3848L5494,3658" />
+	 	 	<path id="road feature 5 {path id}" stroke="black" stroke-width="1" fill="none" d="M5962,3460L5796,3306" />
+	 	 	<path id="road feature 5 {path id}" stroke="black" stroke-width="1" fill="none" d="M3322,2578L2860,2254L2740,2150" />
+	 	 	<path id="road feature 5 {path id}" stroke="black" stroke-width="1" fill="none" d="M4038,2990L3530,2700" />
+	 	 	<path id="road feature 5 {path id}" stroke="black" stroke-width="1" fill="none" d="M2236,1688L2398,1806L2582,1812" />
+	 	 	<path id="road feature 5 {path id}" stroke="black" stroke-width="1" fill="none" d="M302,1402L-256,1656" />
+	 	 	<path id="road feature 5 {path id}" stroke="black" stroke-width="1" fill="none" d="M748,2424L40,2698L-122,2814L-256,2974" />
+	 	 	<path id="road feature 5 {path id}" stroke="black" stroke-width="1" fill="none" d="M-256,1806L80,2798L328,3036L924,3472L1158,3688" />
+	 	 	<path id="road feature 5 {path id}" stroke="black" stroke-width="1" fill="none" d="M1136,3208L924,3472L522,3936L104,4352" />
+	 	 	<path id="road feature 5 {path id}" stroke="black" stroke-width="1" fill="none" d="M482,1842L1372,3406L778,4156L582,4352" />
+	 	 	<path id="road feature 5 {path id}" stroke="black" stroke-width="1" fill="none" d="M900,2986L648,3276L290,3734L-202,4216" />
+	 	 	<path id="road feature 5 {path id}" stroke="black" stroke-width="1" fill="none" d="M1110,4352L778,4156L290,3734L-256,3406" />
+	 	 	<path id="road feature 5 {path id}" stroke="black" stroke-width="1" fill="none" d="M-22,3548L-256,3792" />
+	 	 	<path id="road feature 5 {path id}" stroke="black" stroke-width="1" fill="none" d="M-256,2456L-80,2324" />
+	 	 	<path id="road feature 5 {path id}" stroke="black" stroke-width="1" fill="none" d="M-256,1922L-106,1848L-92,1746L364,1518L446,1674L-38,1906L-106,1848" />
+	 	 	<path id="road feature 5 {path id}" stroke="black" stroke-width="1" fill="none" d="M-256,4272L-202,4216" />
+	 	</g>
+	 	<g id='feature 6'>
+	 	 	<path id="road feature 6 {path id}" stroke="black" stroke-width="1" fill="none" d="M7222,-3304L7902,-1768" />
+	 	</g>
+	 	<g id='feature 7'>
+	 	 	<path id="road feature 7 {path id}" stroke="black" stroke-width="1" fill="none" d="M2872,-416L2936,-42" />
+	 	</g>
+	 	<g id='feature 8'>
+	 	 	<path id="road feature 8 {path id}" stroke="black" stroke-width="1" fill="none" d="M1982,-2478L2272,-2534" />
+	 	 	<path id="road feature 8 {path id}" stroke="black" stroke-width="1" fill="none" d="M2382,-2792L2388,-2872" />
+	 	 	<path id="road feature 8 {path id}" stroke="black" stroke-width="1" fill="none" d="M2426,-3256L2438,-3384" />
+	 	</g>
+	 	<g id='feature 9'>
+	 	 	<path id="road feature 9 {path id}" stroke="black" stroke-width="1" fill="none" d="M3750,40L3856,-8L3936,-242L3934,-448L3612,-510" />
+	 	 	<path id="road feature 9 {path id}" stroke="black" stroke-width="1" fill="none" d="M7080,-656L7316,-270" />
+	 	 	<path id="road feature 9 {path id}" stroke="black" stroke-width="1" fill="none" d="M6640,3440L7144,3214L7322,3148L7478,3632" />
+	 	 	<path id="road feature 9 {path id}" stroke="black" stroke-width="1" fill="none" d="M3966,3118L4814,3586" />
+	 	 	<path id="road feature 9 {path id}" stroke="black" stroke-width="1" fill="none" d="M2588,2412L3084,2772" />
+	 	</g>
+	 	<g id='feature 10'>
+	 	 	<path id="road feature 10 {path id}" stroke="black" stroke-width="1" fill="none" d="M1593,-4080L1592,-3782" />
+	 	 	<path id="road feature 10 {path id}" stroke="black" stroke-width="1" fill="none" d="M1010,-2254L1982,-2478" />
+	 	 	<path id="road feature 10 {path id}" stroke="black" stroke-width="1" fill="none" d="M-256,-1440L1100,-1824L1010,-2254L454,-2428L374,-2716L1426,-3364" />
+	 	 	<path id="road feature 10 {path id}" stroke="black" stroke-width="1" fill="none" d="M1662,210L1100,-1824" />
+	 	 	<path id="road feature 10 {path id}" stroke="black" stroke-width="1" fill="none" d="M2272,-2534L2358,-2554L2382,-2792" />
+	 	 	<path id="road feature 10 {path id}" stroke="black" stroke-width="1" fill="none" d="M2388,-2872L2426,-3256" />
+	 	 	<path id="road feature 10 {path id}" stroke="black" stroke-width="1" fill="none" d="M2438,-3384L2508,-4080" />
+	 	 	<path id="road feature 10 {path id}" stroke="black" stroke-width="1" fill="none" d="M5182,-3470L5414,-3528L5628,-3542L5698,-3296" />
+	 	 	<path id="road feature 10 {path id}" stroke="black" stroke-width="1" fill="none" d="M6106,-1448L6380,-1024L6430,-968L6500,-950L6722,-1038L7388,-1488L7558,-1556L7740,-1654L7902,-1768" />
+	 	 	<path id="road feature 10 {path id}" stroke="black" stroke-width="1" fill="none" d="M6396,-166L6798,606L6938,630H7070L7260,530" />
+	 	 	<path id="road feature 10 {path id}" stroke="black" stroke-width="1" fill="none" d="M2250,3162L2600,3508H2676L2858,3218" />
+	 	 	<path id="road feature 10 {path id}" stroke="black" stroke-width="1" fill="none" d="M2250,3162L2168,3110" />
+	 	 	<path id="road feature 10 {path id}" stroke="black" stroke-width="1" fill="none" d="M3298,916L3418,984L3808,1252L3970,1016" />
+	 	 	<path id="road feature 10 {path id}" stroke="black" stroke-width="1" fill="none" d="M3362,714L2800,832L2602,622L2506,582L2068,712L2120,830" />
+	 	 	<path id="road feature 10 {path id}" stroke="black" stroke-width="1" fill="none" d="M2826,1976L2616,1874L2582,1812" />
+	 	 	<path id="road feature 10 {path id}" stroke="black" stroke-width="1" fill="none" d="M1714,3692L2210,4134L2178,4352" />
+	 	 	<path id="road feature 10 {path id}" stroke="black" stroke-width="1" fill="none" d="M-256,1006L250,772" />
+	 	 	<path id="road feature 10 {path id}" stroke="black" stroke-width="1" fill="none" d="M28,306L-210,414L18,880" />
+	 	 	<path id="road feature 10 {path id}" stroke="black" stroke-width="1" fill="none" d="M-256,174L-80,94" />
+	 	 	<path id="road feature 10 {path id}" stroke="black" stroke-width="1" fill="none" d="M8114,-1302L8176,-1186" />
+	 	 	<path id="road feature 10 {path id}" stroke="black" stroke-width="1" fill="none" d="M8036,-3670L8176,-3564" />
+	 	</g>
+	 	<g id='feature 11'>
+	 	 	<path id="road feature 11 {path id}" stroke="black" stroke-width="1" fill="none" d="" />
+	 	</g>
+	 	<g id='feature 12'>
+	 	 	<path id="road feature 12 {path id}" stroke="black" stroke-width="1" fill="none" d="" />
+	 	</g>
+	 	<g id='feature 13'>
+	 	 	<path id="road feature 13 {path id}" stroke="black" stroke-width="1" fill="none" d="" />
+	 	</g>
+	 	<g id='feature 14'>
+	 	 	<path id="road feature 14 {path id}" stroke="black" stroke-width="1" fill="none" d="M4021,-4080L4020,-4042" />
+	 	 	<path id="road feature 14 {path id}" stroke="black" stroke-width="1" fill="none" d="M2228,2822L2272,2744" />
+	 	 	<path id="road feature 14 {path id}" stroke="black" stroke-width="1" fill="none" d="M3128,1590L3074,1690" />
+	 	</g>
+	 	<g id='feature 15'>
+	 	 	<path id="road feature 15 {path id}" stroke="black" stroke-width="1" fill="none" d="M3584,3808L4624,4352" />
+	 	</g>
+	 	<g id='feature 16'>
+	 	 	<path id="road feature 16 {path id}" stroke="black" stroke-width="1" fill="none" d="M5404,3788L4038,2990" />
+	 	</g>
+	 	<g id='feature 17'>
+	 	 	<path id="road feature 17 {path id}" stroke="black" stroke-width="1" fill="none" d="M5488,-2618L7222,-3304L8176,-3723" />
+	 	</g>
+	 	<g id='feature 18'>
+	 	 	<path id="road feature 18 {path id}" stroke="black" stroke-width="1" fill="none" d="M4038,2990L3584,3808L3324,4352" />
+	 	</g>
+	 	<g id='feature 19'>
+	 	 	<path id="road feature 19 {path id}" stroke="black" stroke-width="1" fill="none" d="M5050,4352L5494,3658L5796,3306L6314,2800L6882,2318L7178,2110L8068,1572L8176,1519" />
+	 	</g>
+	 	<g id='feature 20'>
+	 	 	<path id="road feature 20 {path id}" stroke="black" stroke-width="1" fill="none" d="M6908,4298L8176,4239" />
+	 	</g>
+	 	<g id='feature 21'>
+	 	 	<path id="road feature 21 {path id}" stroke="black" stroke-width="1" fill="none" d="M5192,4122L6198,4238" />
+	 	 	<path id="road feature 21 {path id}" stroke="black" stroke-width="1" fill="none" d="M6870,4192L6908,4298" />
+	 	</g>
+	 	<g id='feature 22'>
+	 	 	<path id="road feature 22 {path id}" stroke="black" stroke-width="1" fill="none" d="M6112,-1566L6106,-1448L5604,-1074L5326,-836L4944,-384L4324,454" />
+	 	</g>
+	 	<g id='feature 23'>
+	 	 	<path id="road feature 23 {path id}" stroke="black" stroke-width="1" fill="none" d="M-256,-262L832,1960L1906,3452" />
+	 	</g>
+	 	<g id='feature 24'>
+	 	 	<path id="road feature 24 {path id}" stroke="black" stroke-width="1" fill="none" d="M6908,4352V4298" />
+	 	</g>
+	 	<g id='feature 25'>
+	 	 	<path id="road feature 25 {path id}" stroke="black" stroke-width="1" fill="none" d="M6870,4192L6872,4060L6708,3576L6314,2800" />
+	 	</g>
+	 	<g id='feature 26'>
+	 	 	<path id="road feature 26 {path id}" stroke="black" stroke-width="1" fill="none" d="M5910,202L6822,-490L7828,-1174L8176,-1331" />
+	 	</g>
+	 	<g id='feature 27'>
+	 	 	<path id="road feature 27 {path id}" stroke="black" stroke-width="1" fill="none" d="M-256,-3474L-238,-3492L468,-4080" />
+	 	</g>
+	 	<g id='feature 28'>
+	 	 	<path id="road feature 28 {path id}" stroke="black" stroke-width="1" fill="none" d="M3768,-2224L4442,-2326L5488,-2618" />
+	 	</g>
+	 	<g id='feature 29'>
+	 	 	<path id="road feature 29 {path id}" stroke="black" stroke-width="1" fill="none" d="M6822,-490L8068,1572" />
+	 	</g>
+	 	<g id='feature 30'>
+	 	 	<path id="road feature 30 {path id}" stroke="black" stroke-width="1" fill="none" d="M4324,454L3574,-98" />
+	 	</g>
+	 	<g id='feature 31'>
+	 	 	<path id="road feature 31 {path id}" stroke="black" stroke-width="1" fill="none" d="M5089,-4080L5106,-3882L5182,-3470L5388,-2818L5488,-2618L6112,-1566" />
+	 	</g>
+	 	<g id='feature 32'>
+	 	 	<path id="road feature 32 {path id}" stroke="black" stroke-width="1" fill="none" d="M250,772L1582,226L2936,-42L3296,-82L3574,-98" />
+	 	</g>
+	 	<g id='feature 33'>
+	 	 	<path id="road feature 33 {path id}" stroke="black" stroke-width="1" fill="none" d="M3446,450L3298,916L3006,1610L2740,2150L2350,2824L2168,3110L1184,4352" />
+	 	</g>
+	 	<g id='feature 34'>
+	 	 	<path id="road feature 34 {path id}" stroke="black" stroke-width="1" fill="none" d="M8052,-4080L8098,-3946L8176,-3775" />
+	 	</g>
+	 	<g id='feature 35'>
+	 	 	<path id="road feature 35 {path id}" stroke="black" stroke-width="1" fill="none" d="M3924,-4080L3574,-98L3446,450" />
+	 	</g>
+	 	<g id='feature 36'>
+	 	 	<path id="road feature 36 {path id}" stroke="black" stroke-width="1" fill="none" d="M7614,-1246L8176,-1469" />
+	 	 	<path id="road feature 36 {path id}" stroke="black" stroke-width="1" fill="none" d="M5852,38L6306,-378L6786,-756" />
+	 	</g>
+	 	<g id='feature 37'>
+	 	 	<path id="road feature 37 {path id}" stroke="black" stroke-width="1" fill="none" d="M8176,-1538L7614,-1246L6786,-756L6276,-408L5758,-26L5130,542L4268,1470L3912,1888L3534,2408L3206,2918L2870,3498L2460,4352" />
+	 	 	<path id="road feature 37 {path id}" stroke="black" stroke-width="1" fill="none" d="M2548,4352L2926,3532L3596,2464L3946,1982L4420,1402L5174,616L5596,234L6430,-406L6970,-770L7758,-1228L8176,-1433" />
+	 	</g>
+	</g>
+	<g id='building'>
+	 	<g id='feature 0'>
+	 	 	<path id="building feature 0 {path id}" stroke="black" stroke-width="1" fill="none" d="M7680,-4080H7938L8026,-3862L7938,-3832L7976,-3748L7730,-3646L7680,-3756L7720,-3776L7684,-3888L7744,-3914Z" />
+	 	</g>
+	 	<g id='feature 1'>
+	 	 	<path id="building feature 1 {path id}" stroke="black" stroke-width="1" fill="none" d="M4216,-250L4448,-86L4360,40L4442,102L4498,32L4574,90L4476,216L4416,168L4308,306L4148,184L4296,-6L4128,-126Z" />
+	 	</g>
+	 	<g id='feature 2'>
+	 	 	<path id="building feature 2 {path id}" stroke="black" stroke-width="1" fill="none" d="M4026,-3014L4354,-2988L4340,-2796L4220,-2806L4200,-2544L3990,-2562Z" />
+	 	</g>
+	 	<g id='feature 3'>
+	 	 	<path id="building feature 3 {path id}" stroke="black" stroke-width="1" fill="none" d="M4888,-2L5142,182L5038,326L4882,212L4784,142Z" />
+	 	</g>
+	 	<g id='feature 4'>
+	 	 	<path id="building feature 4 {path id}" stroke="black" stroke-width="1" fill="none" d="M5872,-3766L6024,-3328L5896,-3284L5744,-3722Z" />
+	 	</g>
+	 	<g id='feature 5'>
+	 	 	<path id="building feature 5 {path id}" stroke="black" stroke-width="1" fill="none" d="M2506,-1248L2558,-1034L2606,-842L1934,-674L1950,-608L2118,-648L2206,-300L2194,-270L2242,-68L1738,54L1634,-286L1706,-312L1652,-580L1612,-702L1552,-684L1500,-870L1570,-888L1546,-1014L1684,-1044Z" />
+	 	</g>
+	 	<g id='feature 6'>
+	 	 	<path id="building feature 6 {path id}" stroke="black" stroke-width="1" fill="none" d="M8176,2287V2437L7808,2626L7748,2510Z" />
+	 	</g>
+	 	<g id='feature 7'>
+	 	 	<path id="building feature 7 {path id}" stroke="black" stroke-width="1" fill="none" d="M3706,1434L3776,1486L3754,1508L3900,1622L3826,1722L3616,1552Z" />
+	 	</g>
+	 	<g id='feature 8'>
+	 	 	<path id="building feature 8 {path id}" stroke="black" stroke-width="1" fill="none" d="M4074,-3838L4318,-3818L4302,-3622L4058,-3642Z" />
+	 	</g>
+	 	<g id='feature 9'>
+	 	 	<path id="building feature 9 {path id}" stroke="black" stroke-width="1" fill="none" d="M7298,-4080H7491L7482,-4016L7520,-4010L7496,-3844L7104,-3902L7130,-4068L7292,-4044Z" />
+	 	</g>
+	 	<g id='feature 10'>
+	 	 	<path id="building feature 10 {path id}" stroke="black" stroke-width="1" fill="none" d="M1676,416L1742,596L1576,656L1510,478Z" />
+	 	</g>
+	 	<g id='feature 11'>
+	 	 	<path id="building feature 11 {path id}" stroke="black" stroke-width="1" fill="none" d="M2508,1292L2550,1408L2382,1468L2340,1354Z" />
+	 	</g>
+	 	<g id='feature 12'>
+	 	 	<path id="building feature 12 {path id}" stroke="black" stroke-width="1" fill="none" d="M3648,2950L3874,3076L3678,3428L3520,3710L3300,4110L3074,3984Z" />
+	 	</g>
+	 	<g id='feature 13'>
+	 	 	<path id="building feature 13 {path id}" stroke="black" stroke-width="1" fill="none" d="M5474,-332L5522,-290L5462,-220L5414,-262Z" />
+	 	</g>
+	 	<g id='feature 14'>
+	 	 	<path id="building feature 14 {path id}" stroke="black" stroke-width="1" fill="none" d="M1716,1712L1748,1796L1720,1806L1858,2148L1718,2204L1660,2062L1568,2098L1492,1912L1600,1868L1562,1774Z" />
+	 	</g>
+	 	<g id='feature 15'>
+	 	 	<path id="building feature 15 {path id}" stroke="black" stroke-width="1" fill="none" d="M3700,810L3934,966L3784,1186L3552,1030Z" />
+	 	</g>
+	 	<g id='feature 16'>
+	 	 	<path id="building feature 16 {path id}" stroke="black" stroke-width="1" fill="none" d="M6752,202L6884,420L6774,488L6732,418L6762,402L6672,252Z" />
+	 	</g>
+	 	<g id='feature 17'>
+	 	 	<path id="building feature 17 {path id}" stroke="black" stroke-width="1" fill="none" d="M5294,2088L5340,2174L5394,2274L5538,2190L5564,2174L5666,2342L5790,2548L4960,3040L4748,2688L5280,2344L5194,2194Z" />
+	 	</g>
+	 	<g id='feature 18'>
+	 	 	<path id="building feature 18 {path id}" stroke="black" stroke-width="1" fill="none" d="M8176,-676L8140,-658L7972,-986L8130,-1068L8168,-1086L8176,-1070Z" />
+	 	</g>
+	 	<g id='feature 19'>
+	 	 	<path id="building feature 19 {path id}" stroke="black" stroke-width="1" fill="none" d="M2938,912L3058,962L2972,1170L2942,1158L2936,1168L2858,1138L2868,1114L2812,1092L2860,972L2906,992Z" />
+	 	</g>
+	 	<g id='feature 20'>
+	 	 	<path id="building feature 20 {path id}" stroke="black" stroke-width="1" fill="none" d="M8176,-1656L7970,-1550L7922,-1642L8158,-1766L8176,-1730Z" />
+	 	</g>
+	 	<g id='feature 21'>
+	 	 	<path id="building feature 21 {path id}" stroke="black" stroke-width="1" fill="none" d="M4960,1248L5132,1530L4442,2294L4186,2088L4900,1276Z" />
+	 	</g>
+	 	<g id='feature 22'>
+	 	 	<path id="building feature 22 {path id}" stroke="black" stroke-width="1" fill="none" d="M5752,-946L5886,-784L5844,-748L5906,-674L5768,-558L5700,-638L5750,-680L5620,-836Z" />
+	 	</g>
+	 	<g id='feature 23'>
+	 	 	<path id="building feature 23 {path id}" stroke="black" stroke-width="1" fill="none" d="M6930,-2920L7028,-2678L6626,-2516L6528,-2760Z" />
+	 	</g>
+	 	<g id='feature 24'>
+	 	 	<path id="building feature 24 {path id}" stroke="black" stroke-width="1" fill="none" d="M1040,924L1082,1014L990,1056L966,1068L924,976Z" />
+	 	</g>
+	 	<g id='feature 25'>
+	 	 	<path id="building feature 25 {path id}" stroke="black" stroke-width="1" fill="none" d="M5530,-862L5618,-758L5504,-664L5416,-768Z" />
+	 	</g>
+	 	<g id='feature 26'>
+	 	 	<path id="building feature 26 {path id}" stroke="black" stroke-width="1" fill="none" d="M6632,1880L6720,2034L6284,2284L6196,2130Z" />
+	 	</g>
+	 	<g id='feature 27'>
+	 	 	<path id="building feature 27 {path id}" stroke="black" stroke-width="1" fill="none" d="M163,-4080H296L178,-4038Z" />
+	 	</g>
+	 	<g id='feature 28'>
+	 	 	<path id="building feature 28 {path id}" stroke="black" stroke-width="1" fill="none" d="M7410,-2618L7522,-2382L7440,-2344L7480,-2260L7370,-2208L7336,-2282L7266,-2250L7150,-2496Z" />
+	 	</g>
+	 	<g id='feature 29'>
+	 	 	<path id="building feature 29 {path id}" stroke="black" stroke-width="1" fill="none" d="M5414,-2376L5492,-2162L5466,-2152L5492,-2078L5430,-2054L5442,-2024L5282,-1966L5164,-2282Z" />
+	 	</g>
+	 	<g id='feature 30'>
+	 	 	<path id="building feature 30 {path id}" stroke="black" stroke-width="1" fill="none" d="M5866,-1088L5970,-964L5864,-876L5760,-1000Z" />
+	 	</g>
+	 	<g id='feature 31'>
+	 	 	<path id="building feature 31 {path id}" stroke="black" stroke-width="1" fill="none" d="M7136,878L7278,1108L7328,1196L7250,1240L7212,1266L7020,946Z" />
+	 	</g>
+	 	<g id='feature 32'>
+	 	 	<path id="building feature 32 {path id}" stroke="black" stroke-width="1" fill="none" d="M4526,2830L4986,3078L4882,3268L4424,3020Z" />
+	 	</g>
+	 	<g id='feature 33'>
+	 	 	<path id="building feature 33 {path id}" stroke="black" stroke-width="1" fill="none" d="M6246,-4080H6328L6314,-3906L6228,-3916Z" />
+	 	</g>
+	 	<g id='feature 34'>
+	 	 	<path id="building feature 34 {path id}" stroke="black" stroke-width="1" fill="none" d="M6266,-2696L6372,-2406L5918,-2240L5812,-2530Z" />
+	 	</g>
+	 	<g id='feature 35'>
+	 	 	<path id="building feature 35 {path id}" stroke="black" stroke-width="1" fill="none" d="M5218,1670L5302,1806L4700,2500L4572,2398Z" />
+	 	</g>
+	 	<g id='feature 36'>
+	 	 	<path id="building feature 36 {path id}" stroke="black" stroke-width="1" fill="none" d="M5688,-1656L5806,-1504L5412,-1190L5292,-1340Z" />
+	 	</g>
+	 	<g id='feature 37'>
+	 	 	<path id="building feature 37 {path id}" stroke="black" stroke-width="1" fill="none" d="M3576,1282L3726,1402L3598,1562L3448,1442L3508,1368Z" />
+	 	</g>
+	 	<g id='feature 38'>
+	 	 	<path id="building feature 38 {path id}" stroke="black" stroke-width="1" fill="none" d="M4184,-804L4450,-792L4438,-618L4782,-356L4672,-216L4578,-98L4256,-342L4226,-310L4190,-342L4106,-414L4256,-594L3858,-616L3864,-800L4186,-788Z" />
+	 	</g>
+	 	<g id='feature 39'>
+	 	 	<path id="building feature 39 {path id}" stroke="black" stroke-width="1" fill="none" d="M2362,2122L2486,2182L2412,2336L2352,2306L2288,2276Z" />
+	 	</g>
+	 	<g id='feature 40'>
+	 	 	<path id="building feature 40 {path id}" stroke="black" stroke-width="1" fill="none" d="M3344,1448L3438,1498L3554,1562L3272,2080L3380,2140L3498,1924L3592,1976L3348,2424L2934,2196Z" />
+	 	</g>
+	 	<g id='feature 41'>
+	 	 	<path id="building feature 41 {path id}" stroke="black" stroke-width="1" fill="none" d="M7958,1896L8072,2074L7314,2552L7202,2372Z" />
+	 	</g>
+	 	<g id='feature 42'>
+	 	 	<path id="building feature 42 {path id}" stroke="black" stroke-width="1" fill="none" d="M3992,3228L4808,3690L4754,3784L3938,3322Z" />
+	 	</g>
+	 	<g id='feature 43'>
+	 	 	<path id="building feature 43 {path id}" stroke="black" stroke-width="1" fill="none" d="M5654,-2138L5734,-2004L5608,-1926L5526,-2060Z" />
+	 	</g>
+	 	<g id='feature 44'>
+	 	 	<path id="building feature 44 {path id}" stroke="black" stroke-width="1" fill="none" d="M5176,-3146L5214,-2956L4976,-2894L4992,-2848L5094,-2874L5116,-2728L5126,-2660L4668,-2552L4560,-2550L4534,-2902L4522,-3040L4838,-3056Z" />
+	 	</g>
+	 	<g id='feature 45'>
+	 	 	<path id="building feature 45 {path id}" stroke="black" stroke-width="1" fill="none" d="M4384,-3036L4514,-3032L4510,-2902L4498,-2552L4496,-2516L4390,-2520L4402,-2908L4380,-2910Z" />
+	 	</g>
+	 	<g id='feature 46'>
+	 	 	<path id="building feature 46 {path id}" stroke="black" stroke-width="1" fill="none" d="M4054,-3444L4292,-3428L4284,-3336L4514,-3320L4498,-3094L4438,-3100V-3076L4238,-3090L4246,-3202L4150,-3208L4144,-3128L4074,-3132L4032,-3136Z" />
+	 	</g>
+	 	<g id='feature 47'>
+	 	 	<path id="building feature 47 {path id}" stroke="black" stroke-width="1" fill="none" d="M4111,-4080H4556L4550,-3926L4388,-3934L4104,-3946Z" />
+	 	</g>
+	 	<g id='feature 48'>
+	 	 	<path id="building feature 48 {path id}" stroke="black" stroke-width="1" fill="none" d="M7316,2894L7358,3018L7224,3062L7182,2938Z" />
+	 	</g>
+	 	<g id='feature 49'>
+	 	 	<path id="building feature 49 {path id}" stroke="black" stroke-width="1" fill="none" d="M1030,646L1112,798L1012,852L972,872L890,720Z" />
+	 	</g>
+	 	<g id='feature 50'>
+	 	 	<path id="building feature 50 {path id}" stroke="black" stroke-width="1" fill="none" d="M7040,-3674L7108,-3512L6912,-3430L6844,-3592Z" />
+	 	</g>
+	 	<g id='feature 51'>
+	 	 	<path id="building feature 51 {path id}" stroke="black" stroke-width="1" fill="none" d="M7020,-2398L7186,-1998L6944,-1898L6778,-2296Z" />
+	 	</g>
+	 	<g id='feature 52'>
+	 	 	<path id="building feature 52 {path id}" stroke="black" stroke-width="1" fill="none" d="M1752,684L1780,760L1572,836L1544,760L1634,728Z" />
+	 	</g>
+	 	<g id='feature 53'>
+	 	 	<path id="building feature 53 {path id}" stroke="black" stroke-width="1" fill="none" d="M1918,528L1948,644L1986,634L2004,692L1910,718L1850,544Z" />
+	 	</g>
+	 	<g id='feature 54'>
+	 	 	<path id="building feature 54 {path id}" stroke="black" stroke-width="1" fill="none" d="M7052,732L7136,878L7020,946L6936,800L6974,778Z" />
+	 	</g>
+	 	<g id='feature 55'>
+	 	 	<path id="building feature 55 {path id}" stroke="black" stroke-width="1" fill="none" d="M-66,-2656L128,-2326L2,-2252L-66,-2368Z" />
+	 	</g>
+	 	<g id='feature 56'>
+	 	 	<path id="building feature 56 {path id}" stroke="black" stroke-width="1" fill="none" d="M6580,-2090L6690,-1860L6544,-1790L6564,-1750L6398,-1672L6378,-1714L6240,-1650L6126,-1894L6266,-1960L6256,-1982L6450,-2074L6468,-2038Z" />
+	 	</g>
+	 	<g id='feature 57'>
+	 	 	<path id="building feature 57 {path id}" stroke="black" stroke-width="1" fill="none" d="M7504,3076L7684,3616L7580,3650L7400,3110Z" />
+	 	</g>
+	 	<g id='feature 58'>
+	 	 	<path id="building feature 58 {path id}" stroke="black" stroke-width="1" fill="none" d="M-66,-4080H164L178,-4038L-42,-3958L-66,-4024Z" />
+	 	</g>
+	 	<g id='feature 59'>
+	 	 	<path id="building feature 59 {path id}" stroke="black" stroke-width="1" fill="none" d="M8176,4082L7372,4126V4030L7072,4056L6856,3428L7040,3354L7200,3840L7350,3822V3752L7504,3744L7508,3830L8176,3797Z" />
+	 	</g>
+	 	<g id='feature 60'>
+	 	 	<path id="building feature 60 {path id}" stroke="black" stroke-width="1" fill="none" d="M1996,2372L2050,2458L2110,2502L2150,2450L2232,2492L2202,2544L2150,2514L2118,2572L2062,2534L1952,2608L1918,2554L1884,2574L1824,2500L1968,2394Z" />
+	 	</g>
+	 	<g id='feature 61'>
+	 	 	<path id="building feature 61 {path id}" stroke="black" stroke-width="1" fill="none" d="M6006,-3292L6102,-3072L6018,-3042L5536,-2868L5460,-3090Z" />
+	 	</g>
+	 	<g id='feature 62'>
+	 	 	<path id="building feature 62 {path id}" stroke="black" stroke-width="1" fill="none" d="M3090,534V708H2858V652H2950V534Z" />
+	 	</g>
+	 	<g id='feature 63'>
+	 	 	<path id="building feature 63 {path id}" stroke="black" stroke-width="1" fill="none" d="M3914,3516L4604,3908L4506,4084L3814,3694Z" />
+	 	</g>
+	 	<g id='feature 64'>
+	 	 	<path id="building feature 64 {path id}" stroke="black" stroke-width="1" fill="none" d="M2616,2758L2792,2870L2756,2926L2932,3028L2680,3442L2456,3296L2498,3228L2366,3144Z" />
+	 	</g>
+	 	<g id='feature 65'>
+	 	 	<path id="building feature 65 {path id}" stroke="black" stroke-width="1" fill="none" d="M6856,-180L6966,26L6732,150L6624,-56Z" />
+	 	</g>
+	 	<g id='feature 66'>
+	 	 	<path id="building feature 66 {path id}" stroke="black" stroke-width="1" fill="none" d="M2444,1574L2666,1586L2656,1782L2468,1772L2472,1698L2438,1696Z" />
+	 	</g>
+	 	<g id='feature 67'>
+	 	 	<path id="building feature 67 {path id}" stroke="black" stroke-width="1" fill="none" d="M5144,3106L5454,3276L5316,3528L4964,3338L5052,3178L5092,3202Z" />
+	 	</g>
+	 	<g id='feature 68'>
+	 	 	<path id="building feature 68 {path id}" stroke="black" stroke-width="1" fill="none" d="M5464,-3446L5560,-3142L5420,-3098L5324,-3402L5442,-3440Z" />
+	 	</g>
+	 	<g id='feature 69'>
+	 	 	<path id="building feature 69 {path id}" stroke="black" stroke-width="1" fill="none" d="M2452,678L2524,878L2240,980L2234,962L2168,780Z" />
+	 	</g>
+	 	<g id='feature 70'>
+	 	 	<path id="building feature 70 {path id}" stroke="black" stroke-width="1" fill="none" d="M2546,1878L2590,1984L2442,2042L2400,1938Z" />
+	 	</g>
+	 	<g id='feature 71'>
+	 	 	<path id="building feature 71 {path id}" stroke="black" stroke-width="1" fill="none" d="M1904,3962L2038,4062L1962,4162H1800L1770,4140Z" />
+	 	</g>
+	 	<g id='feature 72'>
+	 	 	<path id="building feature 72 {path id}" stroke="black" stroke-width="1" fill="none" d="M8176,1032V1313L8128,1340L8070,1234L8088,1224L8028,1116Z" />
+	 	</g>
+	 	<g id='feature 73'>
+	 	 	<path id="building feature 73 {path id}" stroke="black" stroke-width="1" fill="none" d="M2320,4134L2378,4162H2306Z" />
+	 	</g>
+	 	<g id='feature 74'>
+	 	 	<path id="building feature 74 {path id}" stroke="black" stroke-width="1" fill="none" d="M2232,3506L2354,3602L2244,3744L2120,3648Z" />
+	 	</g>
+	 	<g id='feature 75'>
+	 	 	<path id="building feature 75 {path id}" stroke="black" stroke-width="1" fill="none" d="M5140,-338L5312,-200L5196,-56L5024,-194Z" />
+	 	</g>
+	 	<g id='feature 76'>
+	 	 	<path id="building feature 76 {path id}" stroke="black" stroke-width="1" fill="none" d="M1980,2648L2126,2748L2036,2902L2080,2930L1960,3114L1810,3018L1734,2938L1664,2850L1752,2780L1822,2868Z" />
+	 	</g>
+	 	<g id='feature 77'>
+	 	 	<path id="building feature 77 {path id}" stroke="black" stroke-width="1" fill="none" d="M6996,2528L7166,2708L6918,2908L7016,3114L6792,3210L6588,2788L6818,2668Z" />
+	 	</g>
+	 	<g id='feature 78'>
+	 	 	<path id="building feature 78 {path id}" stroke="black" stroke-width="1" fill="none" d="M3080,88L3122,386L3008,400L3002,354L2502,416L2088,516L1954,552L1898,330L2474,182Z" />
+	 	</g>
+	 	<g id='feature 79'>
+	 	 	<path id="building feature 79 {path id}" stroke="black" stroke-width="1" fill="none" d="M4280,714L4398,802L4448,840L4518,892L4400,1050L4162,872Z" />
+	 	</g>
+	 	<g id='feature 80'>
+	 	 	<path id="building feature 80 {path id}" stroke="black" stroke-width="1" fill="none" d="M7254,-1892L7404,-1566L7168,-1456L7016,-1782Z" />
+	 	</g>
+	 	<g id='feature 81'>
+	 	 	<path id="building feature 81 {path id}" stroke="black" stroke-width="1" fill="none" d="M4736,106L4784,142L4882,212L4820,298L4674,192Z" />
+	 	</g>
+	 	<g id='feature 82'>
+	 	 	<path id="building feature 82 {path id}" stroke="black" stroke-width="1" fill="none" d="M4114,786L4180,840L4098,942L4030,888Z" />
+	 	</g>
+	 	<g id='feature 83'>
+	 	 	<path id="building feature 83 {path id}" stroke="black" stroke-width="1" fill="none" d="M5008,-1076L5160,-944L4822,-552L4668,-684Z" />
+	 	</g>
+	 	<g id='feature 84'>
+	 	 	<path id="building feature 84 {path id}" stroke="black" stroke-width="1" fill="none" d="M2032,2280L2062,2356L1968,2394L1938,2318Z" />
+	 	</g>
+	 	<g id='feature 85'>
+	 	 	<path id="building feature 85 {path id}" stroke="black" stroke-width="1" fill="none" d="M3784,300L4026,440L3940,590L3866,548L3798,664L3632,568Z" />
+	 	</g>
+	 	<g id='feature 86'>
+	 	 	<path id="building feature 86 {path id}" stroke="black" stroke-width="1" fill="none" d="M6634,-3518L6706,-3314L6200,-3132L6126,-3336Z" />
+	 	</g>
+	 	<g id='feature 87'>
+	 	 	<path id="building feature 87 {path id}" stroke="black" stroke-width="1" fill="none" d="M7538,-740L7642,-536L7594,-512L7632,-436L7518,-380L7508,-398L7470,-380L7444,-430L7408,-412L7310,-604L7408,-654L7400,-670Z" />
+	 	</g>
+	 	<g id='feature 88'>
+	 	 	<path id="building feature 88 {path id}" stroke="black" stroke-width="1" fill="none" d="M7682,-2084L7834,-1758L7596,-1648L7446,-1974Z" />
+	 	</g>
+	 	<g id='feature 89'>
+	 	 	<path id="building feature 89 {path id}" stroke="black" stroke-width="1" fill="none" d="M7802,-882L7820,-854L7842,-868L7920,-746L7894,-728L7946,-646L8028,-700L8130,-540L8032,-476L7974,-566L7910,-526L7928,-502L7852,-454L7732,-642L7644,-782Z" />
+	 	</g>
+	 	<g id='feature 90'>
+	 	 	<path id="building feature 90 {path id}" stroke="black" stroke-width="1" fill="none" d="M3610,4002L3900,4162H3522Z" />
+	 	</g>
+	 	<g id='feature 91'>
+	 	 	<path id="building feature 91 {path id}" stroke="black" stroke-width="1" fill="none" d="M5302,1806L5476,2092L5340,2174L5294,2088L5194,2194L4814,2594L4700,2500Z" />
+	 	</g>
+	 	<g id='feature 92'>
+	 	 	<path id="building feature 92 {path id}" stroke="black" stroke-width="1" fill="none" d="M2014,808L2088,998L1798,1110L1736,954L1724,920Z" />
+	 	</g>
+	 	<g id='feature 93'>
+	 	 	<path id="building feature 93 {path id}" stroke="black" stroke-width="1" fill="none" d="M5746,-4004L5808,-3770L5332,-3652L5274,-3892Z" />
+	 	</g>
+	 	<g id='feature 94'>
+	 	 	<path id="building feature 94 {path id}" stroke="black" stroke-width="1" fill="none" d="M5024,-3864L5070,-3532L5150,-3274L4940,-3230L4910,-3356L4644,-3348L4640,-3288L4754,-3284V-3168L4634,-3162L4632,-3046L4516,-3040L4522,-3418L4410,-3416L4406,-3460L4342,-3456L4344,-3438L4296,-3442L4314,-3574H4374L4372,-3616H4534L4536,-3594L4746,-3600L4856,-3604L4852,-3844Z" />
+	 	</g>
+	 	<g id='feature 95'>
+	 	 	<path id="building feature 95 {path id}" stroke="black" stroke-width="1" fill="none" d="M7230,1542L7318,1692L6940,1916L6850,1766Z" />
+	 	</g>
+	 	<g id='feature 96'>
+	 	 	<path id="building feature 96 {path id}" stroke="black" stroke-width="1" fill="none" d="M8176,3079V3211L8166,3214L8126,3096Z" />
+	 	</g>
+	 	<g id='feature 97'>
+	 	 	<path id="building feature 97 {path id}" stroke="black" stroke-width="1" fill="none" d="M4978,3694L5148,3802L4926,4162H4688Z" />
+	 	</g>
+	 	<g id='feature 98'>
+	 	 	<path id="building feature 98 {path id}" stroke="black" stroke-width="1" fill="none" d="M6060,-1196L6220,-992L6084,-884L5922,-1088Z" />
+	 	</g>
+	 	<g id='feature 99'>
+	 	 	<path id="building feature 99 {path id}" stroke="black" stroke-width="1" fill="none" d="M2212,2238L2288,2276L2352,2306L2280,2454L2140,2386Z" />
+	 	</g>
+	 	<g id='feature 100'>
+	 	 	<path id="building feature 100 {path id}" stroke="black" stroke-width="1" fill="none" d="M6711,-4080H7046L7130,-4068L7104,-3902L6984,-3920L6980,-3882L6688,-3926Z" />
+	 	</g>
+	 	<g id='feature 101'>
+	 	 	<path id="building feature 101 {path id}" stroke="black" stroke-width="1" fill="none" d="M-66,-3852L-44,-3814L-66,-3802Z" />
+	 	 	<path id="building feature 101 {path id}" stroke="black" stroke-width="1" fill="none" d="M-66,-4024L-42,-3958L-66,-3956Z" />
+	 	</g>
+	 	<g id='feature 102'>
+	 	 	<path id="building feature 102 {path id}" stroke="black" stroke-width="1" fill="none" d="M4626,304L4776,428L4668,562L4640,538L4610,572L4678,628L4632,684L4538,606L4566,574L4518,534L4564,476L4516,436Z" />
+	 	</g>
+	 	<g id='feature 103'>
+	 	 	<path id="building feature 103 {path id}" stroke="black" stroke-width="1" fill="none" d="M1740,2364L1780,2418L1704,2474L1760,2552L1570,2690L1474,2560Z" />
+	 	</g>
+	 	<g id='feature 104'>
+	 	 	<path id="building feature 104 {path id}" stroke="black" stroke-width="1" fill="none" d="M5412,-626L5646,-424L5582,-350L5522,-402L5476,-348L5302,-498Z" />
+	 	</g>
+	 	<g id='feature 105'>
+	 	 	<path id="building feature 105 {path id}" stroke="black" stroke-width="1" fill="none" d="M7314,1088L7592,1572L7480,1636L7250,1240L7328,1196L7278,1108Z" />
+	 	</g>
+	 	<g id='feature 106'>
+	 	 	<path id="building feature 106 {path id}" stroke="black" stroke-width="1" fill="none" d="M2672,822L2706,914L2604,952L2570,860Z" />
+	 	</g>
+	 	<g id='feature 107'>
+	 	 	<path id="building feature 107 {path id}" stroke="black" stroke-width="1" fill="none" d="M4466,648L4660,794L4600,872L4486,786L4448,840L4398,802L4432,756L4402,734Z" />
+	 	</g>
+	 	<g id='feature 108'>
+	 	 	<path id="building feature 108 {path id}" stroke="black" stroke-width="1" fill="none" d="M7864,2714L8100,3322L7908,3398L7672,2788Z" />
+	 	</g>
+	 	<g id='feature 109'>
+	 	 	<path id="building feature 109 {path id}" stroke="black" stroke-width="1" fill="none" d="M498,-3904L540,-3838H648L652,-3880L808,-3876L806,-3626L628,-3632L634,-3786L546,-3788L572,-3746L360,-3590L264,-3740L300,-3766Z" />
+	 	</g>
+	 	<g id='feature 110'>
+	 	 	<path id="building feature 110 {path id}" stroke="black" stroke-width="1" fill="none" d="M1198,-1092L1514,110L190,460L-66,-506V-760Z" />
+	 	</g>
+	 	<g id='feature 111'>
+	 	 	<path id="building feature 111 {path id}" stroke="black" stroke-width="1" fill="none" d="M8176,-3404V-2768L7982,-3328Z" />
+	 	</g>
+	 	<g id='feature 112'>
+	 	 	<path id="building feature 112 {path id}" stroke="black" stroke-width="1" fill="none" d="M7082,-3866L7130,-3740L6976,-3680L6906,-3844Z" />
+	 	</g>
+	 	<g id='feature 113'>
+	 	 	<path id="building feature 113 {path id}" stroke="black" stroke-width="1" fill="none" d="M6858,-1540L6996,-1276L6730,-1138L6592,-1402Z" />
+	 	</g>
+	 	<g id='feature 114'>
+	 	 	<path id="building feature 114 {path id}" stroke="black" stroke-width="1" fill="none" d="M3028,-4080H3759L3708,-3428L3630,-2552L3610,-2550L3606,-2482L3436,-598L3068,-592L3082,-844L2606,-842L2558,-1034L3094,-1032L3110,-1294H3012L3030,-1492L2892,-1506L2380,-1498L2386,-1388L1780,-1352V-1312L1650,-1308L1622,-1256L1380,-1204L1154,-2208L1428,-2264L1466,-2058L1572,-2064L1564,-2318L1978,-2350L1982,-2478L1988,-2626L866,-2376L836,-2614L854,-2624L828,-2770L954,-2802L972,-2680L1892,-2902L1950,-2998L1896,-3260L2044,-3254L2074,-3638L2108,-4080H2461L2390,-3390L2438,-3384L2496,-3378L2570,-4080H2852L2834,-3884L3318,-3832L3322,-3920L3014,-3948Z" />
+	 	 	<path id="building feature 114 {path id}" stroke="black" stroke-width="1" fill="none" d="M3028,-3378L2986,-2730L2916,-2736L2782,-2738V-2596L2844,-2588L2834,-2506L2770,-2488L2778,-2354L3312,-2378V-2486L3250,-2482L3258,-2582L3116,-2584L3176,-3366Z" />
+	 	 	<path id="building feature 114 {path id}" stroke="black" stroke-width="1" fill="none" d="M2294,-2800L2272,-2534L2258,-2380L2408,-2366L2444,-2786L2382,-2792Z" />
+	 	 	<path id="building feature 114 {path id}" stroke="black" stroke-width="1" fill="none" d="M2342,-3262L2302,-2880L2388,-2872L2454,-2864L2492,-3248L2426,-3256Z" />
+	 	</g>
+	 	<g id='feature 115'>
+	 	 	<path id="building feature 115 {path id}" stroke="black" stroke-width="1" fill="none" d="M6632,-3844L6714,-3574L6596,-3536L6574,-3602L6396,-3550L6324,-3768L6528,-3794L6512,-3842Z" />
+	 	</g>
+	 	<g id='feature 116'>
+	 	 	<path id="building feature 116 {path id}" stroke="black" stroke-width="1" fill="none" d="M4904,356L4982,420L5002,394L5090,468L5024,544L4860,412Z" />
+	 	</g>
+	 	<g id='feature 117'>
+	 	 	<path id="building feature 117 {path id}" stroke="black" stroke-width="1" fill="none" d="M1384,1710L1424,1830L1300,1872L1260,1750Z" />
+	 	</g>
+	 	<g id='feature 118'>
+	 	 	<path id="building feature 118 {path id}" stroke="black" stroke-width="1" fill="none" d="M8176,148V766L8002,824L7980,780L7820,876L7588,510Z" />
+	 	</g>
+	 	<g id='feature 119'>
+	 	 	<path id="building feature 119 {path id}" stroke="black" stroke-width="1" fill="none" d="M7806,-3248L8108,-2468L7818,-2356L7600,-2920L7478,-2872L7396,-3088Z" />
+	 	</g>
+	 	<g id='feature 120'>
+	 	 	<path id="building feature 120 {path id}" stroke="black" stroke-width="1" fill="none" d="M1556,840L1614,1000L1700,1228L1444,1324L1454,1350L1144,1466L1112,1396L870,1514L840,1462L626,1084L664,1062L810,978L826,970L914,1126L1004,1084L990,1056L1082,1014L1298,934Z" />
+	 	</g>
+	 	<g id='feature 121'>
+	 	 	<path id="building feature 121 {path id}" stroke="black" stroke-width="1" fill="none" d="M2140,1248L2200,1444L1938,1522L1878,1328Z" />
+	 	</g>
+	 	<g id='feature 122'>
+	 	 	<path id="building feature 122 {path id}" stroke="black" stroke-width="1" fill="none" d="M2704,-416L2740,-220L2420,-164L2386,-360Z" />
+	 	</g>
+	 	<g id='feature 123'>
+	 	 	<path id="building feature 123 {path id}" stroke="black" stroke-width="1" fill="none" d="M6074,-3542L6136,-3380L6044,-3346L5982,-3508Z" />
+	 	</g>
+	 	<g id='feature 124'>
+	 	 	<path id="building feature 124 {path id}" stroke="black" stroke-width="1" fill="none" d="M-66,-2268L-40,-2224L-66,-2210Z" />
+	 	</g>
+	 	<g id='feature 125'>
+	 	 	<path id="building feature 125 {path id}" stroke="black" stroke-width="1" fill="none" d="M6382,48L6718,588L6674,616L6532,706L6370,446L6236,232L6194,166Z" />
+	 	</g>
+	 	<g id='feature 126'>
+	 	 	<path id="building feature 126 {path id}" stroke="black" stroke-width="1" fill="none" d="M5132,1530L5218,1670L4572,2398L4442,2294Z" />
+	 	</g>
+	 	<g id='feature 127'>
+	 	 	<path id="building feature 127 {path id}" stroke="black" stroke-width="1" fill="none" d="M7592,1572L7642,1660L7530,1722L7480,1636Z" />
+	 	</g>
+	 	<g id='feature 128'>
+	 	 	<path id="building feature 128 {path id}" stroke="black" stroke-width="1" fill="none" d="M5082,-2266L5170,-1998L4140,-1604L4112,-1666L4086,-1642L4064,-1560L4176,-1546L4152,-1096L3916,-1130L3998,-1864Z" />
+	 	</g>
+	 	<g id='feature 129'>
+	 	 	<path id="building feature 129 {path id}" stroke="black" stroke-width="1" fill="none" d="M1480,2406L1520,2458L1422,2532L1382,2480Z" />
+	 	</g>
+	 	<g id='feature 130'>
+	 	 	<path id="building feature 130 {path id}" stroke="black" stroke-width="1" fill="none" d="M5848,400L6006,658L6238,1056L6090,1154L6156,1254L6216,1220L6382,1480L6324,1516L6522,1842L6232,2026L6214,2004L6134,2054L6148,2076L5948,2198L5932,2178L5858,2218L5868,2240L5666,2342L5564,2174L5538,2190L5476,2092L5302,1806L5132,1530L4960,1248L4930,1204L5248,910Z" />
+	 	</g>
+	 	<g id='feature 131'>
+	 	 	<path id="building feature 131 {path id}" stroke="black" stroke-width="1" fill="none" d="M6000,-4080H6227L6214,-3914L6086,-3926L6084,-3892L5984,-3900Z" />
+	 	</g>
+	 	<g id='feature 132'>
+	 	 	<path id="building feature 132 {path id}" stroke="black" stroke-width="1" fill="none" d="M6370,446L6532,706L6674,616L7144,1418L6894,1564L6704,1240L6594,1306L6808,1674L6652,1766L6238,1056L6006,658Z" />
+	 	</g>
+	 	<g id='feature 133'>
+	 	 	<path id="building feature 133 {path id}" stroke="black" stroke-width="1" fill="none" d="M942,-2250L1038,-1868L634,-1768L538,-2150Z" />
+	 	</g>
+	 	<g id='feature 134'>
+	 	 	<path id="building feature 134 {path id}" stroke="black" stroke-width="1" fill="none" d="M4140,402L4188,438L4148,494L4228,550L4160,646L4102,606L4134,558L4064,508Z" />
+	 	</g>
+	 	<g id='feature 135'>
+	 	 	<path id="building feature 135 {path id}" stroke="black" stroke-width="1" fill="none" d="M2940,4088L3086,4162H2902Z" />
+	 	</g>
+	 	<g id='feature 136'>
+	 	 	<path id="building feature 136 {path id}" stroke="black" stroke-width="1" fill="none" d="M7396,-130L7468,-14L7500,-34L7532,18L7506,36L7558,120L7416,210L7258,-42Z" />
+	 	</g>
+	 	<g id='feature 137'>
+	 	 	<path id="building feature 137 {path id}" stroke="black" stroke-width="1" fill="none" d="M1084,1576L1194,1784L1034,1868L924,1660Z" />
+	 	</g>
+	 	<g id='feature 138'>
+	 	 	<path id="building feature 138 {path id}" stroke="black" stroke-width="1" fill="none" d="M2694,-678L2736,-462L2704,-416L2386,-360L2326,-396L2282,-604Z" />
+	 	</g>
+	 	<g id='feature 139'>
+	 	 	<path id="building feature 139 {path id}" stroke="black" stroke-width="1" fill="none" d="M7200,-3044L7306,-2786L7206,-2746L7100,-3002Z" />
+	 	</g>
+	 	<g id='feature 140'>
+	 	 	<path id="building feature 140 {path id}" stroke="black" stroke-width="1" fill="none" d="M4132,974L4408,1164L3980,1514L3826,1392L4118,994Z" />
+	 	</g>
+	 	<g id='feature 141'>
+	 	 	<path id="building feature 141 {path id}" stroke="black" stroke-width="1" fill="none" d="M1040,-1672L1178,-1158L-66,-824V-1376Z" />
+	 	</g>
+	</g>
+</svg>

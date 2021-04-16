@@ -1,5 +1,5 @@
 const { ipcRenderer } = require('electron');
-const { readFileSync } = require('original-fs');
+const { readFileSync, writeFileSync } = require('original-fs');
 
 var status = 0;
 
@@ -23,7 +23,7 @@ input_zoom.value = sample.zoom;
 
 function collectInput () 
 {
-    if (status != 0) return;
+    if (status != 0) return console.log('--load not available');
 
     sample.start.x = input_start_x.value;
     sample.start.y = input_start_y.value;
@@ -34,15 +34,28 @@ function collectInput ()
     console.log('--sample event sent')
     ipcRenderer.send('sample', sample);
 
+    setProgress(0);
 }
 
-function onProgress (progress) {progressbar.style.width = `${progress*100}%`;}
-function onStatus (id) {status = id;}
-function setLoadButtonActive (active) {}
+function setProgress (progress, smooth=false) 
+{
+    smooth ? progressbar.classList.add('smooth') : progressbar.classList.remove('smooth'); 
+    progressbar.style.width = `${progress*100}%`;
+}
+
+function setStatus (id) {status = id;}
+function setLoadButton (available) {}
 
 
 //#region WORKING EVENT HANDLER
 ipcRenderer.on('progress', (event, progress) => {
-    onProgress(progress);
+    setProgress(progress, true);
 });
+
+ipcRenderer.on('status', (event, status) => {
+    setStatus(status);
+    setLoadButton(status == 0);
+})
+
+
 //#endregion

@@ -1,7 +1,9 @@
-const { BrowserWindow, ipcMain } = require("electron");
+const { ipcMain } = require("electron");
 const { SetStatus, updateSample } = require("../util/service");
 const { createStack } = require("../util/tiles");
+const { sendEvent } = require("./events");
 const { downloadTile } = require("./loader");
+const { neoSampleTile } = require("./sampler");
 
 function startSampleJob (data) {
     updateSample(data);
@@ -13,12 +15,15 @@ async function downloadBuffer (stack) {
     for (i = 0; i < stack.length; i++) {
         await downloadTile(stack[i]).then((result) => {
             // data = result;
-            console.log(`downloaded tile ${i}`);
+            // console.log(`downloaded tile ${i}`);
+            sendEvent('progress', (i + 1) / stack.length);
         });
-        sendEvent('progress', (i+1)/stack.length);
     }
+    console.log('all tiles loaded');
     SetStatus(0);
+
     // sampleBuffer(stack);
+    neoSampleTile(stack[0]);
 }
 
 ipcMain.on('sample', (event, sample) => {
@@ -26,10 +31,5 @@ ipcMain.on('sample', (event, sample) => {
     startSampleJob(sample);
 });
 
-//#region WORKING EVENT SENDER
-function sendEvent(event, data) {
-    BrowserWindow.getFocusedWindow().webContents.send(event, data);
-}
-//#endregion
 
 console.log('--init system');
