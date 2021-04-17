@@ -2,6 +2,7 @@ module.exports = {
     svgDoc : svgDoc,
     svgGroup : svgGroup,
     svgPath : svgPath,
+    svgShape : svgShape,
     toShape : toShape,
 }
 
@@ -23,10 +24,18 @@ function svgGroup (id, content, indent) {
     return group_content; 
 }
 
-function svgPath (id, content, indent, stroke=1) {
+function svgPath (id, content, indent, stroke=0.5) {
     return indent + `<path id="${id}" stroke="black" stroke-width="${stroke}" fill="none" d="${content}"/>` + nl;
 }
 
-function svgShape (id, content, indent, fill="#000") {}
+function svgShape (id, content, indent, fill="#000") {
+    return indent + `<polygon id="${id}" points="${content}" style="fill:${fill}; stroke:none"/>` + nl;
+}
 
-function toShape (geo) {}
+function toShape (geo) {
+    shape = "";
+    geo.forEach(point => {
+        shape += point.x + ',' + point.y + ' ';
+    });
+    return shape;
+}
