@@ -27,4 +27,6 @@ function svgPath (id, content, indent, stroke=1) {
     return indent + `<path id="${id}" stroke="black" stroke-width="${stroke}" fill="none" d="${content}"/>` + nl;
 }
 
+function svgShape (id, content, indent, fill="#000") {}
+
 function toShape (geo) {}

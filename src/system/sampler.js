@@ -13,9 +13,10 @@ module.exports = {
     sampleStack : sampleStack,
 }
 
-
 var schema = [
-    "road"
+    "road",
+    "building",
+    "water"
 ]
 
 var types = [
@@ -24,54 +25,23 @@ var types = [
     "blabla"
 ]
 
+var svgBounds;
 
-function getSvgBounds () {
-    var bounds = {
-        x: (Sample().end.x - Sample().start.x + 1) * Config().tilescale * Config().scale,
-        y: (Sample().end.y - Sample().start.y + 1) * Config().tilescale * Config().scale,
-    }
-    return bounds;
-}
-
-
-async function sampleStack (stack) {
-
-    // get stack 
-    // sample all tiles into Data[] object
-    // pack data into svg Doc and save
-
+function sampleStack (stack) {
+    svgBounds = getSvgBounds();
     var content = {}
     var counter = 0;
     stack.forEach((tile) => {
-        // console.log(i);
         neoSampleTile(tile, content).then((result) => {
             counter++;
             content = result;
-            
-            if (counter >= stack.length) {
-                writeDoc(content);
-            }
-
+            if (counter >= stack.length) {writeDoc(content);}
         });
     });
     console.log('--finished extract');
 }
 
-function writeDoc (content) {
-    var doc_content = '';
-    schema.forEach((layertype) => {
-        var layer_content = '';
-        types.forEach((type) => {
-            if (content[layertype][type]) layer_content += svgGroup(type, content[layertype][type], '\t\t');
-        });
-        if(content[layertype]['other']) layer_content += svgGroup('other', content[layertype]['other'], '\t\t');
-        doc_content += svgGroup(layertype, layer_content, '\t');
-    });
-    var svgBounds = getSvgBounds();
-    writeFileSync(`src/data/output/feature.svg`, svgDoc('document', doc_content, svgBounds.x, svgBounds.y));
-}
-
-async function neoSampleTile (tile, content) 
+function neoSampleTile (tile, content) 
 {
     return new Promise ((resolve) => {
         var buffer = readFileSync(`src/data/buffer/${tile.x}_${tile.y}_${tile.z}.pbf`);
@@ -83,11 +53,10 @@ async function neoSampleTile (tile, content)
     });
 }
 
-
 function extract (data, tile, content) {
     
     var transform = {
-        scale: Config().scale, // --! replace with config value
+        scale: Config().scale,
         offset: {
             x: (tile.x - Sample().start.x) * Config().tilescale * Config().scale,
             y: (tile.y - Sample().start.y) * Config().tilescale * Config().scale,
@@ -98,17 +67,18 @@ function extract (data, tile, content) {
         if (!content[layertype]) {content[layertype] = {};}
         if (!content[layertype]['other']) {content[layertype]['other'] = '';}
 
-        // -- sample all features in layertype --
+        // if layer doesnt exist skip
+        if(!data.layers[layertype]) return;
+        
+        // sample all features in layertype
         for (i = 0; i < data.layers[layertype].length; i++) 
         {
             const feature = data.layers[layertype].feature(i);
-
             const Class = feature.properties.type;
             const Geometry = feature.loadGeometry();
 
             // extract feature geometry to svg paths
-            var featureContent = buildGeometry(Geometry, transform);
-            // create svg group of current feature with all its paths
+            var featureContent = buildGeometry(Geometry, getOffset(tile));
             var svgFeatureContent = svgGroup(`tile${tile.x}_${tile.y} feature${feature.id}`, featureContent, '\t\t\t');
 
             // if features class exists in filter push to category
@@ -117,12 +87,9 @@ function extract (data, tile, content) {
                 if (!content[layertype][Class]) {content[layertype][Class] = '';}
                 content[layertype][Class] += svgFeatureContent;
             } 
-            else {
-                content[layertype]['other'] += svgFeatureContent;
-            }
+            else {content[layertype]['other'] += svgFeatureContent;}
         }
     });
-
     return content;
 }
 
@@ -139,15 +106,43 @@ function parseTile (buffer) {
     });
 }
 
-function buildGeometry (geometry, transform) {
+function buildGeometry (geometry, offset) {
     var content = '';
     geometry.forEach((segment) => {
         segment.map((point) => {
-            point.x = point.x * transform.scale + transform.offset.x;
-            point.y = point.y * transform.scale + transform.offset.y;
+            point.x = point.x * Config().scale + offset.x;
+            point.y = point.y * Config().scale + offset.y;
         });
         var path = toPath(segment);
         content += svgPath(`path${geometry.indexOf(segment)}`, path, '\t\t\t\t', 0.5);
     });
     return content;
+}
+
+function writeDoc (content) {
+    var doc_content = '';
+    schema.forEach((layertype) => {
+        var layer_content = '';
+        types.forEach((type) => {
+            if (content[layertype][type]) layer_content += svgGroup(type, content[layertype][type], '\t\t');
+        });
+        if(content[layertype]['other']) layer_content += svgGroup('other', content[layertype]['other'], '\t\t');
+        doc_content += svgGroup(layertype, layer_content, '\t');
+    });
+    writeFileSync(`src/data/output/feature.svg`, svgDoc('document', doc_content, svgBounds.x, svgBounds.y));
+}
+
+function getSvgBounds () {
+    var bounds = {
+        x: (Sample().end.x - Sample().start.x + 1) * Config().tilescale * Config().scale,
+        y: (Sample().end.y - Sample().start.y + 1) * Config().tilescale * Config().scale,
+    }
+    return bounds;
+}
+
+function getOffset (tile) {
+    return {
+        x: (tile.x - Sample().start.x) * Config().tilescale * Config().scale,
+        y: (tile.y - Sample().start.y) * Config().tilescale * Config().scale,
+    }
 }
