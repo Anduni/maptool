@@ -3,7 +3,7 @@ const { SetStatus, updateSample } = require("../util/service");
 const { createStack } = require("../util/tiles");
 const { sendEvent } = require("./events");
 const { downloadTile } = require("./loader");
-const { neoSampleTile, sampleStack } = require("./sampler");
+const { sampleStack } = require("./sampler");
 
 function startSampleJob (data) {
     updateSample(data);

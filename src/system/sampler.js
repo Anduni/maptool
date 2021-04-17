@@ -9,7 +9,6 @@ const { Config, Sample } = require("../util/service");
 const { svgDoc, svgGroup, svgPath } = require("./writer");
 
 module.exports = {
-    neoSampleTile : neoSampleTile,
     sampleStack : sampleStack,
 }
 
@@ -54,15 +53,6 @@ function neoSampleTile (tile, content)
 }
 
 function extract (data, tile, content) {
-    
-    var transform = {
-        scale: Config().scale,
-        offset: {
-            x: (tile.x - Sample().start.x) * Config().tilescale * Config().scale,
-            y: (tile.y - Sample().start.y) * Config().tilescale * Config().scale,
-        }
-    }
-    
     schema.forEach((layertype) => {
         if (!content[layertype]) {content[layertype] = {};}
         if (!content[layertype]['other']) {content[layertype]['other'] = '';}
@@ -78,7 +68,7 @@ function extract (data, tile, content) {
             const Geometry = feature.loadGeometry();
 
             // extract feature geometry to svg paths
-            var featureContent = buildGeometry(Geometry, getOffset(tile));
+            var featureContent = buildGeometry(Geometry, getSvgOffset(tile));
             var svgFeatureContent = svgGroup(`tile${tile.x}_${tile.y} feature${feature.id}`, featureContent, '\t\t\t');
 
             // if features class exists in filter push to category
@@ -140,7 +130,7 @@ function getSvgBounds () {
     return bounds;
 }
 
-function getOffset (tile) {
+function getSvgOffset (tile) {
     return {
         x: (tile.x - Sample().start.x) * Config().tilescale * Config().scale,
         y: (tile.y - Sample().start.y) * Config().tilescale * Config().scale,

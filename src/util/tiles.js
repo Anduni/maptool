@@ -22,5 +22,3 @@ function createStack (sample) {
     console.log(`stack size: ${stack.length}`);
     return stack;
 }
-
-createStack

@@ -14,10 +14,7 @@ function downloadTile (tile) {
             console.log('TILE ' + tile.x + ', ' + tile.y + ' -- already downloaded');
             return;
         }
-
-        // console.log('-- DOWNLOAD LOCKED');
-        // return;
-
+        
         https.get(serverpath, (response) => {
             let file = createWriteStream(filepath);
             response.on('data', (chunk) => {

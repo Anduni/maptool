@@ -25,12 +25,12 @@ function collectInput ()
 {
     if (status != 0) return console.log('--load not available');
 
-    sample.start.x = input_start_x.value;
-    sample.start.y = input_start_y.value;
-    sample.end.x = input_end_x.value;
-    sample.end.y = input_end_y.value;
+    sample.start.x = parseInt(input_start_x.value, 10);
+    sample.start.y = parseInt(input_start_y.value, 10);
+    sample.end.x = parseInt(input_end_x.value, 10);
+    sample.end.y = parseInt(input_end_y.value, 10);
     
-    sample.zoom = input_zoom.value;
+    sample.zoom = parseInt(input_zoom.value, 10);
 
     sample.center = {
         x: sample.start.x - Math.floor(0.5 * (sample.end.x - sample.start.x)),
