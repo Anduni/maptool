@@ -1,7 +1,5 @@
 const VectorTile = require("@mapbox/vector-tile/lib/vectortile");
-const { contentTracing } = require("electron");
 const { readFileSync, writeFileSync } = require("fs");
-const { resolve } = require("path");
 const Pbf = require("pbf");
 const { toPath } = require("svg-points");
 const { gunzip } = require("zlib");
@@ -15,7 +13,8 @@ module.exports = {
 var schema = [
     "road",
     "building",
-    "water"
+    "water",
+    "blabla"
 ]
 
 var types = [
@@ -24,30 +23,22 @@ var types = [
     "blabla"
 ]
 
-var svgBounds;
 
 function sampleStack (stack) {
-    svgBounds = getSvgBounds();
     var content = {}
     var counter = 0;
+    
     stack.forEach((tile) => {
-        neoSampleTile(tile, content).then((result) => {
-            counter++;
-            content = result;
-            if (counter >= stack.length) {writeDoc(content);}
-        });
-    });
-    console.log('--finished extract');
-}
-
-function neoSampleTile (tile, content) 
-{
-    return new Promise ((resolve) => {
         var buffer = readFileSync(`src/data/buffer/${tile.x}_${tile.y}_${tile.z}.pbf`);
         parseTile(buffer).then((data) => {
             console.log('--starting extract');
             content = extract(data, tile, content);
-            resolve(content);
+            
+            counter++;
+            if (counter >= stack.length) {
+                writeDoc(content);
+                console.log('--finished extract');
+            }
         });
     });
 }
@@ -119,7 +110,7 @@ function writeDoc (content) {
         if(content[layertype]['other']) layer_content += svgGroup('other', content[layertype]['other'], '\t\t');
         doc_content += svgGroup(layertype, layer_content, '\t');
     });
-    writeFileSync(`src/data/output/feature.svg`, svgDoc('document', doc_content, svgBounds.x, svgBounds.y));
+    writeFileSync(`src/data/output/feature.svg`, svgDoc('document', doc_content, getSvgBounds().x, getSvgBounds().y));
 }
 
 function getSvgBounds () {
