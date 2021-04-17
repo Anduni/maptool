@@ -24,6 +24,27 @@ var types = [
 ]
 
 
+var filter = {
+    road: {
+        id: "road",
+        key: "type",
+        values: [
+            "path", 
+            "footway",
+        ],
+        type: "path" 
+    },
+    building: {
+        id: "building",
+        key: "type",
+        values: [
+            "industrial",
+            "residential"
+        ],
+        type: "shape"
+    }
+}
+
 function sampleStack (stack) {
     var content = {}
     var counter = 0;
@@ -110,7 +131,7 @@ function writeDoc (content) {
         if(content[layertype]['other']) layer_content += svgGroup('other', content[layertype]['other'], '\t\t');
         doc_content += svgGroup(layertype, layer_content, '\t');
     });
-    writeFileSync(`data/output/feature.svg`, svgDoc('document', doc_content, getSvgBounds().x, getSvgBounds().y));
+writeFileSync(`data/output/feature.svg`, svgDoc('document', doc_content, getSvgBounds().x, getSvgBounds().y));
 }
 
 function getSvgBounds () {
