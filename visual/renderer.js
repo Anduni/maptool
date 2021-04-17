@@ -13,7 +13,7 @@ const progressbar = document.getElementById('progress-bar-fill');
 const input_btn_load = document.getElementById('input_btn_load');
 input_btn_load.addEventListener('click', collectInput);
 
-var sample = JSON.parse(readFileSync('src/settings/sample.json'));
+var sample = JSON.parse(readFileSync('settings/sample.json'));
 
 input_start_x.value = sample.start.x;
 input_start_y.value = sample.start.y;

@@ -3,7 +3,7 @@ const { readFileSync, writeFileSync } = require("fs");
 const Pbf = require("pbf");
 const { toPath } = require("svg-points");
 const { gunzip } = require("zlib");
-const { Config, Sample } = require("../util/service");
+const { Config, Sample } = require("../utilities/service");
 const { svgDoc, svgGroup, svgPath } = require("./writer");
 
 module.exports = {
@@ -29,7 +29,7 @@ function sampleStack (stack) {
     var counter = 0;
     
     stack.forEach((tile) => {
-        var buffer = readFileSync(`src/data/buffer/${tile.x}_${tile.y}_${tile.z}.pbf`);
+        var buffer = readFileSync(`data/buffer/${tile.x}_${tile.y}_${tile.z}.pbf`);
         parseTile(buffer).then((data) => {
             console.log('--starting extract');
             content = extract(data, tile, content);
@@ -110,7 +110,7 @@ function writeDoc (content) {
         if(content[layertype]['other']) layer_content += svgGroup('other', content[layertype]['other'], '\t\t');
         doc_content += svgGroup(layertype, layer_content, '\t');
     });
-    writeFileSync(`src/data/output/feature.svg`, svgDoc('document', doc_content, getSvgBounds().x, getSvgBounds().y));
+    writeFileSync(`data/output/feature.svg`, svgDoc('document', doc_content, getSvgBounds().x, getSvgBounds().y));
 }
 
 function getSvgBounds () {

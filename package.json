@@ -3,7 +3,7 @@
   "productName": "vectiles-app",
   "version": "1.0.0",
   "description": "vectortiles to svg",
-  "main": "src/index.js",
+  "main": "code/index.js",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",

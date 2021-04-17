@@ -1,9 +1,9 @@
 const { ipcMain } = require("electron");
-const { SetStatus, updateSample } = require("../util/service");
-const { createStack } = require("../util/tiles");
-const { sendEvent } = require("./events");
-const { downloadTile } = require("./loader");
-const { sampleStack } = require("./sampler");
+const { SetStatus, updateSample } = require("./utilities/service");
+const { createStack } = require("./utilities/tiles");
+const { sendEvent } = require("./utilities/events");
+const { downloadTile } = require("./components/loader");
+const { sampleStack } = require("./components/sampler");
 
 function startSampleJob (data) {
     updateSample(data);
