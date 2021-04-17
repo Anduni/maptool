@@ -3,7 +3,7 @@ const { SetStatus, updateSample } = require("../util/service");
 const { createStack } = require("../util/tiles");
 const { sendEvent } = require("./events");
 const { downloadTile } = require("./loader");
-const { neoSampleTile } = require("./sampler");
+const { neoSampleTile, sampleStack } = require("./sampler");
 
 function startSampleJob (data) {
     updateSample(data);
@@ -23,7 +23,8 @@ async function downloadBuffer (stack) {
     SetStatus(0);
 
     // sampleBuffer(stack);
-    neoSampleTile(stack[0]);
+
+    sampleStack(stack);
 }
 
 ipcMain.on('sample', (event, sample) => {

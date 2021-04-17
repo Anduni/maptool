@@ -2,8 +2,8 @@
     "TOKEN" : "pk.eyJ1IjoiYW5kdW5pIiwiYSI6ImNraHRqbGk0dzJmNDUzOG14bW5zNnpmcGMifQ.NVFP12dNvup1JfVgFTyOqw",
     "SERVER" : "https://api.mapbox.com/v4/mapbox.mapbox-streets-v8",
 
-    "TILESCALE" : 4096,
-    "SCALE" : 0.01,
+    "tilescale" : 4096,
+    "scale" : 0.01,
 
     "DIRECTORY" : {
         "BUFFER" : "buffer/",

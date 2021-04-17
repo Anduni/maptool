@@ -29,7 +29,13 @@ function collectInput ()
     sample.start.y = input_start_y.value;
     sample.end.x = input_end_x.value;
     sample.end.y = input_end_y.value;
+    
     sample.zoom = input_zoom.value;
+
+    sample.center = {
+        x: sample.start.x - Math.floor(0.5 * (sample.end.x - sample.start.x)),
+        y: sample.start.y - Math.floor(0.5 * (sample.end.y - sample.start.y)),
+    }
 
     console.log('--sample event sent')
     ipcRenderer.send('sample', sample);

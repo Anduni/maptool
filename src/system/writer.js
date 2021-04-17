@@ -6,7 +6,6 @@ module.exports = {
 }
 
 var nl = '\n';
-var tab = '\t';
 
 function svgDoc (id, content, width, height) { 
     var svg_content = '';
@@ -24,7 +23,7 @@ function svgGroup (id, content, indent) {
     return group_content; 
 }
 
-function svgPath (id, content, indent, stroke=5) {
+function svgPath (id, content, indent, stroke=1) {
     return indent + `<path id="${id}" stroke="black" stroke-width="${stroke}" fill="none" d="${content}"/>` + nl;
 }
 

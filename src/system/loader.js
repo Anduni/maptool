@@ -11,7 +11,7 @@ function downloadTile (tile) {
     return new Promise ((resolve) => {
         if (existsSync(filepath)) {
             setTimeout(resolve, 100);
-            console.log('TILE ' + x + ', ' + y + ' -- already downloaded');
+            console.log('TILE ' + tile.x + ', ' + tile.y + ' -- already downloaded');
             return;
         }
 
@@ -25,7 +25,7 @@ function downloadTile (tile) {
             });
             response.on('end', () => {
                 file.end();
-                console.log('TILE ' + x + ', ' + y + ' -- download successfull');
+                console.log('TILE ' + tile.x + ', ' + tile.y + ' -- download successfull');
                 // callback ------------------------------------ //
                 resolve();
             });
