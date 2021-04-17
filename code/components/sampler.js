@@ -14,15 +14,25 @@ var schema = [
     "road",
     "building",
     "water",
-    "blabla"
+    "-"
 ]
 
 var types = [
     "path", 
     "footway",
-    "blabla"
+    "-"
 ]
 
+var layerfilters = {
+    road : [
+        "path",
+        "footway",
+        "-"
+    ],
+    building : [
+        "building"
+    ]
+}
 
 var filter = {
     road: {
@@ -66,6 +76,7 @@ function sampleStack (stack) {
 
 function extract (data, tile, content) {
     schema.forEach((layertype) => {
+
         if (!content[layertype]) {content[layertype] = {};}
         if (!content[layertype]['other']) {content[layertype]['other'] = '';}
 
@@ -85,7 +96,7 @@ function extract (data, tile, content) {
 
             // if features class exists in filter push to category
             // else push to 'other'
-            if (types.indexOf(Class) > -1) {
+            if (layerfilters[layertype] && layerfilters[layertype].indexOf(Class) > -1) {
                 if (!content[layertype][Class]) {content[layertype][Class] = '';}
                 content[layertype][Class] += svgFeatureContent;
             } 
@@ -125,9 +136,13 @@ function writeDoc (content) {
     var doc_content = '';
     schema.forEach((layertype) => {
         var layer_content = '';
-        types.forEach((type) => {
-            if (content[layertype][type]) layer_content += svgGroup(type, content[layertype][type], '\t\t');
-        });
+
+        if (layerfilters[layertype]) {
+            layerfilters[layertype].forEach((type) => {
+                if (content[layertype][type]) layer_content += svgGroup(type, content[layertype][type], '\t\t');
+            });
+        }
+
         if(content[layertype]['other']) layer_content += svgGroup('other', content[layertype]['other'], '\t\t');
         doc_content += svgGroup(layertype, layer_content, '\t');
     });
