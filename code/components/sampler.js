@@ -1,5 +1,7 @@
 const VectorTile = require("@mapbox/vector-tile/lib/vectortile");
-const { readFileSync, writeFileSync } = require("fs");
+const { dialog, BrowserWindow } = require("electron");
+const { on } = require("events");
+const { readFileSync, writeFileSync, writeFile, fstat } = require("fs");
 const Pbf = require("pbf");
 const { toPath } = require("svg-points");
 const { gunzip } = require("zlib");
@@ -22,17 +24,6 @@ var types = [
     "footway",
     "-"
 ]
-
-// var layerfilters = {
-//     road : [
-//         "path",
-//         "footway",
-//         "-"
-//     ],
-//     building : [
-//         "building"
-//     ]
-// }
 
 var layerfilters = {
     road: {
@@ -74,15 +65,34 @@ function sampleStack (stack) {
             
             counter++;
             if (counter >= stack.length) {
-                writeDoc(content);
+                var file = writeDoc(content);
                 console.log('--finished extract');
 
-                
+                SaveFile(file);
                 SetStatus(0);
             }
         });
     });
 }
+
+
+async function SaveFile (file) {
+    var callback = await dialog.showSaveDialog({
+        buttonLabel: 'Save',
+        filters: [
+            { name: 'SVG', extensions: ['svg'] },
+          ]
+    });
+    
+    console.log(callback.filePath);
+    
+    if(!callback.canceled) {
+        writeFile(callback.filePath, file, () => {
+            console.log(`--file saved at ${callback.filePath}`);
+        });
+    }
+}
+
 
 function extract (data, tile, content) {
     schema.forEach((layertype) => {
@@ -175,7 +185,7 @@ function writeDoc (content) {
         doc_content += svgGroup(layertype, layer_content, '\t');
     });
 
-    writeFileSync(`data/output/feature.svg`, svgDoc('document', doc_content, getSvgBounds().x, getSvgBounds().y));
+    return svgDoc('document', doc_content, getSvgBounds().x, getSvgBounds().y);
 }
 
 
