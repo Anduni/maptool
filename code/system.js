@@ -18,7 +18,6 @@ async function downloadBuffer (stack) {
         });
     }
     console.log('all tiles loaded');
-    SetStatus(0);
 
     sampleStack(stack);
 }

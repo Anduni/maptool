@@ -8,43 +8,42 @@
 </head>
 <body>
 
-  <div id="settings-screen">
-  </div>
-  
-  <div id="screen-main">
+  <div id="settings-screen" class="hidden">
     <div>
       token
       <input type="token" id="input_token">
     </div>
-    <!-- spacing -->
-    <br>
-    <div>
-      start
-      x <input type="text" id="input_start_x">
-      y <input type="text" id="input_start_y">
+  </div>
+
+  <div id="screen-main">
+
+    <div id="sample-view" class="centered-flex">
+      <div class="sample-input">
+        START
+        <input type="text" id="input_start_x" class="field">
+        <input type="text" id="input_start_y" class="field">
+      </div>
+      
+      <div class="sample-input">
+        END
+        <input type="text" id="input_end_x" class="field">
+        <input type="text" id="input_end_y" class="field">
+      </div>
+
+      <div class="sample-input">
+        ZOOM
+        <input type="text" id="input_zoom" class="field">
+      </div>
     </div>
-    <div>
-      end 
-      x <input type="text" id="input_end_x">
-      y <input type="text" id="input_end_y">
-    </div>
-    <!-- spacing -->
-    <br>
-    <div>
-      zoom
-      <input type="text" id="input_zoom">
-    </div>
-    <!-- spacing -->
-    <br>
-    <br>
-    <div>
-      <button id="input_btn_load">load</button>
-      <br>
-      <br>
-      <div id="progress-bar">
+
+    <div id="load-view" class="centered-flex">
+      <button id="btn-load" class="button field smooth">LOAD</button>
+      
+      <div id="progress-bar" class="field">
         <div id="progress-bar-fill"></div>
       </div>
     </div>
+    
   </div>
 
 </body>

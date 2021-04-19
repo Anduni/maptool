@@ -10,7 +10,7 @@ const input_end_y = document.getElementById('input_end_y');
 const input_zoom = document.getElementById('input_zoom');
 
 const progressbar = document.getElementById('progress-bar-fill');
-const input_btn_load = document.getElementById('input_btn_load');
+const input_btn_load = document.getElementById('btn-load');
 input_btn_load.addEventListener('click', collectInput);
 
 var sample = JSON.parse(readFileSync('settings/sample.json'));
@@ -50,7 +50,10 @@ function setProgress (progress, smooth=false)
 }
 
 function setStatus (id) {status = id;}
-function setLoadButton (available) {}
+
+function setLoadButton (available) {
+    available ? input_btn_load.classList.remove('locked') : input_btn_load.classList.add('locked');
+}
 
 
 //#region WORKING EVENT HANDLER
@@ -61,6 +64,7 @@ ipcRenderer.on('progress', (event, progress) => {
 ipcRenderer.on('status', (event, status) => {
     setStatus(status);
     setLoadButton(status == 0);
+    if(status == 0) { setProgress(0); }
 })
 
 

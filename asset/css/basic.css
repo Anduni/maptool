@@ -1,0 +1,7 @@
+.smooth {
+    transition: 0.2s;
+  }
+  
+  .hidden {
+    display: none;
+  }

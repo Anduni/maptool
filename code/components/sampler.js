@@ -3,7 +3,7 @@ const { readFileSync, writeFileSync } = require("fs");
 const Pbf = require("pbf");
 const { toPath } = require("svg-points");
 const { gunzip } = require("zlib");
-const { Config, Sample } = require("../utilities/service");
+const { Config, Sample, SetStatus } = require("../utilities/service");
 const { svgDoc, svgGroup, svgPath, toShape, svgShape } = require("./writer");
 
 module.exports = {
@@ -76,6 +76,9 @@ function sampleStack (stack) {
             if (counter >= stack.length) {
                 writeDoc(content);
                 console.log('--finished extract');
+
+                
+                SetStatus(0);
             }
         });
     });
