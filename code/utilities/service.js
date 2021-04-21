@@ -5,9 +5,11 @@ module.exports = {
     Status : Status,
     SetStatus : SetStatus,
     Config : Config,
-    Sample : Sample,
     updateConfig : updateConfig,
+    Sample : Sample,
     updateSample : updateSample,
+    Filter : Filter,
+    updateFilter : updateFilter,
 }
 
 // 0 ready; 1 loading; 2 sampling; -1 frozen
@@ -31,4 +33,11 @@ function updateSample (data) {
     sample = data;
     fs.writeFileSync('settings/sample.json', JSON.stringify(data, null, 2));
     // console.log(sample);
+}
+
+var filter = JSON.parse(fs.readFileSync('settings/filter.json'));
+function Filter () {return filter;}
+function updateFilter (data) {
+    filter = data;
+    fs.writeFileSync(`settings/filter.json`, JSON.stringify(data, null, 2));
 }

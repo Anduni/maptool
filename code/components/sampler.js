@@ -4,7 +4,7 @@ const { readFileSync, writeFile } = require("fs");
 const Pbf = require("pbf");
 const { toPath } = require("svg-points");
 const { gunzip } = require("zlib");
-const { Config, Sample, SetStatus } = require("../utilities/service");
+const { Config, Sample, SetStatus, updateFilter, Filter } = require("../utilities/service");
 const { svgDoc, svgGroup, svgPath, toShape, svgShape } = require("./writer");
 
 module.exports = {
@@ -15,10 +15,9 @@ var schema = [
     "road",
     "building",
     "water",
-    "-"
 ]
 
-var layerfilters = {
+var filter = {
     road: {
         key: "class",
         values: [
@@ -44,6 +43,7 @@ var layerfilters = {
 }
 
 function sampleStack (stack) {
+
     var content = {}
     var counter = 0;
     
@@ -69,59 +69,57 @@ function sampleStack (stack) {
 async function SaveFile (file) {
     var callback = await dialog.showSaveDialog({
         buttonLabel: 'Save',
-        filters: [
+        filter: [
             { name: 'SVG', extensions: ['svg'] },
           ]
     });
     
-    console.log(callback.filePath);
-    
-    if(!callback.canceled) {
+    if (!callback.canceled) {
         writeFile(callback.filePath, file, () => {
             console.log(`--file saved at ${callback.filePath}`);
         });
+    }
+    else if (callback.canceled) {
+        console.log('--save canceled');
     }
 }
 
 
 function extract (data, tile, content) {
-    schema.forEach((layertype) => {
-
+    schema.forEach((layer) => {
         // if layer doesnt exist skip
-        if(!data.layers[layertype]) return;
+        if(!data.layers[layer]) return;
 
-        var key;
-        if (layerfilters[layertype]) key = layerfilters[layertype].key;
+        const filterExists = Filter()[layer];
+        const Key = Filter()[layer].key;
 
-        if (!content[layertype]) {content[layertype] = {};}
-        if (!content[layertype]['other']) {content[layertype]['other'] = '';}
+        if (!content[layer]) {content[layer] = {};}
 
-        
-        // sample all features in layertype
-        for (i = 0; i < data.layers[layertype].length; i++) 
+        // sample all features in layer
+        for (i = 0; i < data.layers[layer].length; i++) 
         {
-            const feature = data.layers[layertype].feature(i);
-            const Class = feature.properties[key];
-            const Geometry = feature.loadGeometry();
+            const feature = data.layers[layer].feature(i);
+            const value = feature.properties[Key];
+            const geometry = feature.loadGeometry();
 
             // extract feature geometry to svg paths
-            var featureContent = buildGeometry(Geometry, getSvgOffset(tile), layerfilters[layertype] && layerfilters[layertype].type == 'shape');
-            // if (layerfilters[layertype] && layerfilters[layertype].type == 'shape') {
-            //     featureContent = buildGeometry(Geometry, getSvgOffset(tile), true);
-            // }
+            var featureContent = buildGeometry(geometry, getSvgOffset(tile), Filter()[layer] && Filter()[layer].type == 'shape');
 
             var svgFeatureContent = svgGroup(`tile${tile.x}_${tile.y} feature${feature.id}`, featureContent, '\t\t\t');
 
-            // if features class exists in filter push to category
+            // if features key value exists in filter push to category
             // else push to 'other'
-            if (layerfilters[layertype] && layerfilters[layertype].values.indexOf(Class) > -1) {
-                if (!content[layertype][Class]) {content[layertype][Class] = '';}
-                content[layertype][Class] += svgFeatureContent;
+            if (filterExists && Filter()[layer].values.indexOf(value) > -1) {
+                if (!content[layer][value]) {content[layer][value] = '';}
+                content[layer][value] += svgFeatureContent;
             }
-
-            else {content[layertype]['other'] += svgFeatureContent;}
+            else {
+                if (!content[layer]['other']) {content[layer]['other'] = '';}
+                content[layer]['other'] += svgFeatureContent;
+            }
         }
     });
+
     return content;
 }
 
@@ -160,19 +158,19 @@ function buildGeometry (geometry, offset, shape=false) {
 
 function writeDoc (content) {
     var doc_content = '';
-    schema.forEach((layertype) => {
+    schema.forEach((layer) => {
         // if layer not sampled skip
-        if (!content[layertype]) return;
+        if (!content[layer]) return;
 
         var layer_content = '';
-        if (layerfilters[layertype]) {
-            layerfilters[layertype].values.forEach((type) => {
-                if (content[layertype][type]) layer_content += svgGroup(type, content[layertype][type], '\t\t');
+        if (Filter()[layer]) {
+            Filter()[layer].values.forEach((value) => {
+                if (content[layer][value]) layer_content += svgGroup(value, content[layer][value], '\t\t');
             });
         }
 
-        if(content[layertype]['other']) layer_content += svgGroup('other', content[layertype]['other'], '\t\t');
-        doc_content += svgGroup(layertype, layer_content, '\t');
+        if(content[layer]['other']) layer_content += svgGroup('other', content[layer]['other'], '\t\t');
+        doc_content += svgGroup(layer, layer_content, '\t');
     });
 
     return svgDoc('document', doc_content, getSvgBounds().x, getSvgBounds().y);

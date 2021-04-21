@@ -1,0 +1,24 @@
+{
+  "road": {
+    "key": "class",
+    "values": [
+      "path",
+      "footway"
+    ],
+    "type": "path"
+  },
+  "building": {
+    "key": "type",
+    "values": [
+      "industrial",
+      "residential",
+      "building"
+    ],
+    "type": "shape"
+  },
+  "water": {
+    "key": "type",
+    "values": [],
+    "type": "shape"
+  }
+}
