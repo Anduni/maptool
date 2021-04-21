@@ -1,7 +1,6 @@
 const VectorTile = require("@mapbox/vector-tile/lib/vectortile");
-const { dialog, BrowserWindow } = require("electron");
-const { on } = require("events");
-const { readFileSync, writeFileSync, writeFile, fstat } = require("fs");
+const { dialog } = require("electron");
+const { readFileSync, writeFile } = require("fs");
 const Pbf = require("pbf");
 const { toPath } = require("svg-points");
 const { gunzip } = require("zlib");
@@ -19,15 +18,8 @@ var schema = [
     "-"
 ]
 
-var types = [
-    "path", 
-    "footway",
-    "-"
-]
-
 var layerfilters = {
     road: {
-        id: "road",
         key: "class",
         values: [
             "path",
@@ -36,7 +28,6 @@ var layerfilters = {
         type: "path" 
     },
     building: {
-        id: "building",
         key: "type",
         values: [
             "industrial",
@@ -46,7 +37,6 @@ var layerfilters = {
         type: "shape"
     },
     water: {
-        id: "water",
         key: "type",
         values: [],
         type: "shape"

@@ -1,0 +1,33 @@
+.panel {
+    height: 64px;
+    width: 512px;
+    border: 2px solid white;
+    border-radius: 8px;
+
+    color: white;
+    font-size: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 16px;
+}
+
+.label {
+    margin: 0 16px 0 16px;
+}
+
+.separator {
+    height: 66%;
+    border-left: 3px dotted white;
+}
+
+#filters {
+    display: flex;
+    flex-direction: column;
+
+    border: 2px solid white;
+    border-radius: 12px;
+    padding: 64px;
+}

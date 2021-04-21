@@ -1,0 +1,11 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: #0b141f;
+    background-image: linear-gradient(to bottom, #17212c 33%, #08121da0 100%), url(../img/background_black.png);
+}

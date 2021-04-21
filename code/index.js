@@ -20,7 +20,7 @@ function init () {
 // FUNCTIONS
 function createWindow (windowConfig) {
   const w = new BrowserWindow(windowConfig);
-  w.loadFile(path.join(__dirname, '../visual/mainScreen.html'));
+  w.loadFile(path.join(__dirname, '../asset/views/mainScreen.html'));
   // w.webContents.openDevTools();
   w.setMenuBarVisibility(false);
   return w;
