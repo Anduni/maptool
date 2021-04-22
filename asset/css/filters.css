@@ -26,8 +26,15 @@
 #filters {
     display: flex;
     flex-direction: column;
+    
+    max-height: 80vh;
+    overflow: auto;
 
-    border: 2px solid white;
+    /* border: 2px solid white; */
     border-radius: 12px;
     padding: 64px;
+}
+
+#btn-save {
+    margin: 32px 0 32px 0;
 }

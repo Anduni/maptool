@@ -21,7 +21,7 @@ function init () {
 function createWindow (windowConfig) {
   const w = new BrowserWindow(windowConfig);
   w.loadFile(path.join(__dirname, '../asset/views/mainScreen.html'));
-  // w.webContents.openDevTools();
+  w.webContents.openDevTools();
   w.setMenuBarVisibility(false);
   return w;
 }

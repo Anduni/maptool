@@ -1,9 +1,10 @@
-const { ipcMain } = require("electron");
-const { SetStatus, updateSample } = require("./utilities/service");
+const { ipcMain, BrowserWindow } = require("electron");
+const { SetStatus, updateSample, updateFilter } = require("./utilities/service");
 const { createStack } = require("./utilities/tiles");
 const { sendEvent } = require("./utilities/events");
 const { downloadTile } = require("./components/loader");
 const { sampleStack } = require("./components/sampler");
+const { readFileSync } = require("original-fs");
 
 function startSampleJob (data) {
     updateSample(data);
@@ -26,5 +27,15 @@ ipcMain.on('sample', (event, sample) => {
     console.log('-- sample event received');
     startSampleJob(sample);
 });
+
+ipcMain.on('filter', (event, filter) => {
+    updateFilter(filter);
+});
+
+ipcMain.on('settings', (event) => {
+    var settingsWindow = new BrowserWindow(JSON.parse(readFileSync('settings/mainWindowConfig.json')));
+    settingsWindow.loadFile('asset/views/settingsScreen.html');
+    settingsWindow.setMenuBarVisibility(false);
+})
 
 console.log('--init system');

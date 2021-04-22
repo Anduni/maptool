@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>settings</title>
+    <link rel="stylesheet" href="../css/basic.css">
+    <link rel="stylesheet" href="../css/font.css">
+    <link rel="stylesheet" href="../css/filters.css">
+    <link rel="stylesheet" href="../css/background.css">
+
+    <script defer src="../../code/ui/settingsScreen.js"></script>
+</head>
+
+<body style="color: white;">
+    <div id="filters">
+        
+        <template id="filter-entry-template">
+            <div id="filter-entry" class="filter-entry">
+                layername <br><input id="filter-layer" type="text"><br>
+                <div>
+                    geometry type <br><input id="geometry-type" type="text"><br>
+                    key <br><input id="filter-key" type="text"><br>
+                    values <br><div id="filter-values"></div>
+                    <button>++</button>
+                </div>
+                <br>
+                <br>
+            </div>
+        </template>
+
+        <template id="filter-value-template">
+            <span>
+                <input id="filter-value" type="text">
+                <button>---</button>
+                <br>
+            </span>
+        </template>
+
+        <div class="panel" style="display: none;">
+            <span class="label">type</span> 
+            <div class="separator"></div>
+            <span class="label">industrial</span>
+        </div>
+
+    </div>
+
+    <button id="btn-save">save</button>
+
+</body>
+
+</html>

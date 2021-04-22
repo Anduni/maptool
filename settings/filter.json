@@ -1,24 +1,35 @@
 {
+  "layers": [
+    "road",
+    "building",
+    "water"
+  ],
   "road": {
-    "key": "class",
+    "key": "type",
     "values": [
+      "footway",
       "path",
-      "footway"
+      "1",
+      "test",
+      "eet",
+      "qweqwe"
     ],
-    "type": "path"
+    "geometrytype": "path"
   },
   "building": {
     "key": "type",
     "values": [
       "industrial",
-      "residential",
       "building"
     ],
-    "type": "shape"
+    "geometrytype": "shape"
   },
   "water": {
     "key": "type",
-    "values": [],
-    "type": "shape"
+    "values": [
+      "1",
+      "test"
+    ],
+    "geometrytype": "shape"
   }
 }

@@ -13,6 +13,8 @@ const progressbar = document.getElementById('progress-bar-fill');
 const input_btn_load = document.getElementById('btn-load');
 input_btn_load.addEventListener('click', collectInput);
 
+document.querySelector('#btn-settings').addEventListener('click', function() {ipcRenderer.send('settings');});
+
 var sample = JSON.parse(readFileSync('settings/sample.json'));
 
 input_start_x.value = sample.start.x;
@@ -54,7 +56,6 @@ function setStatus (id) {status = id;}
 function setLoadButton (available) {
     available ? input_btn_load.classList.remove('locked') : input_btn_load.classList.add('locked');
 }
-
 
 //#region WORKING EVENT HANDLER
 ipcRenderer.on('progress', (event, progress) => {

@@ -11,37 +11,6 @@ module.exports = {
     sampleStack : sampleStack,
 }
 
-var schema = [
-    "road",
-    "building",
-    "water",
-]
-
-var filter = {
-    road: {
-        key: "class",
-        values: [
-            "path",
-            "footway",
-        ],
-        type: "path" 
-    },
-    building: {
-        key: "type",
-        values: [
-            "industrial",
-            "residential",
-            "building"
-        ],
-        type: "shape"
-    },
-    water: {
-        key: "type",
-        values: [],
-        type: "shape"
-    } 
-}
-
 function sampleStack (stack) {
 
     var content = {}
@@ -86,7 +55,7 @@ async function SaveFile (file) {
 
 
 function extract (data, tile, content) {
-    schema.forEach((layer) => {
+    Filter().layers.forEach((layer) => {
         // if layer doesnt exist skip
         if(!data.layers[layer]) return;
 
@@ -103,7 +72,7 @@ function extract (data, tile, content) {
             const geometry = feature.loadGeometry();
 
             // extract feature geometry to svg paths
-            var featureContent = buildGeometry(geometry, getSvgOffset(tile), Filter()[layer] && Filter()[layer].type == 'shape');
+            var featureContent = buildGeometry(geometry, getSvgOffset(tile), Filter()[layer] && Filter()[layer].geometrytype == 'shape');
 
             var svgFeatureContent = svgGroup(`tile${tile.x}_${tile.y} feature${feature.id}`, featureContent, '\t\t\t');
 
@@ -136,6 +105,7 @@ function parseTile (buffer) {
     });
 }
 
+
 function buildGeometry (geometry, offset, shape=false) {
     var content = '';
     geometry.forEach((segment) => {
@@ -156,9 +126,11 @@ function buildGeometry (geometry, offset, shape=false) {
     return content;
 }
 
+
 function writeDoc (content) {
     var doc_content = '';
-    schema.forEach((layer) => {
+    Filter().layers.forEach((layer) => {
+
         // if layer not sampled skip
         if (!content[layer]) return;
 
@@ -184,6 +156,7 @@ function getSvgBounds () {
     }
     return bounds;
 }
+
 
 function getSvgOffset (tile) {
     return {
