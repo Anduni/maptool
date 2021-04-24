@@ -1,15 +1,33 @@
 {
   "name": "vectiles-app",
-  "productName": "vectiles-app",
-  "version": "1.0.0",
-  "description": "vectortiles to svg",
+  "productName": "Map Loader",
+  "version": "0.0.1",
+  "description": "parse vectortiles to svg doc",
   "main": "code/index.js",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-    "lint": "echo \"No linting configured\""
+    "lint": "echo \"No linting configured\"",
+    "build-installer": "electron-builder"
+  },
+  "build": {
+    "appId": "vect",
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "asset/icon.ico"
+    },
+    "nsis": {
+      "installerIcon": "asset/icon.ico",
+      "uninstallerIcon": "asset/icon.ico",
+      "uninstallDisplayName": "Map Loader",
+      "license": "license.txt",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
   },
   "keywords": [],
   "author": {
@@ -58,6 +76,7 @@
     "svg-points": "^6.0.1"
   },
   "devDependencies": {
+    "electron-builder": "^22.10.5",
     "@electron-forge/cli": "^6.0.0-beta.54",
     "@electron-forge/maker-deb": "^6.0.0-beta.54",
     "@electron-forge/maker-rpm": "^6.0.0-beta.54",
