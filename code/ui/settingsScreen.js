@@ -7,7 +7,7 @@ var filter_value_template = document.getElementById('filter-value-template');
 var filter_container = document.getElementById('filters');
 document.querySelector('#btn-save').addEventListener('click', SaveFilters);
 
-var filter = JSON.parse(fs.readFileSync(remote.app.getPath('userData') + '/Local Storage/filter.json'));
+var filter = JSON.parse(fs.readFileSync(remote.app.getPath('userData') + '/filter.json'));
 
 // var filter = {
 //     layers: [

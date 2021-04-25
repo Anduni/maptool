@@ -16,7 +16,7 @@ input_btn_load.addEventListener('click', collectInput);
 document.querySelector('#btn-settings').addEventListener('click', function() {ipcRenderer.send('settings');});
 
 
-var sample = JSON.parse(readFileSync(remote.app.getPath('userData') + '/Local Storage/sample.json'));
+var sample = JSON.parse(readFileSync(remote.app.getPath('userData') + '/sample.json'));
 
 input_start_x.value = sample.start.x;
 input_start_y.value = sample.start.y;

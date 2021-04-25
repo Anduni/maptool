@@ -17,7 +17,7 @@ function sampleStack (stack) {
     var counter = 0;
     
     stack.forEach((tile) => {
-        var buffer = readFileSync(app.getPath('userData') + `/Local Storage/buffer/${tile.x}_${tile.y}_${tile.z}.pbf`);
+        var buffer = readFileSync(app.getPath('userData') + `/buffer/${tile.x}_${tile.y}_${tile.z}.pbf`);
         parseTile(buffer).then((data) => {
             console.log('--starting extract');
             content = extract(data, tile, content);
