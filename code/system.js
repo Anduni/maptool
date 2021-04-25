@@ -33,7 +33,16 @@ ipcMain.on('filter', (event, filter) => {
 });
 
 ipcMain.on('settings', (event) => {
-    var settingsWindow = new BrowserWindow(JSON.parse(readFileSync('settings/mainWindowConfig.json')));
+    var settingsWindow = new BrowserWindow({
+        width: 480,
+        height: 720,
+        icon: "asset/icon.ico",
+        webPreferences: {
+            nodeIntegration: true,
+            enableRemoteModule : true
+        }
+    });
+    
     settingsWindow.loadFile('asset/views/settingsScreen.html');
     settingsWindow.setMenuBarVisibility(false);
 })

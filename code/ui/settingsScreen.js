@@ -1,4 +1,4 @@
-const { ipcRenderer } = require('electron');
+const { ipcRenderer, remote } = require('electron');
 const fs = require('fs');
 
 var filter_entry_template = document.getElementById('filter-entry-template');
@@ -7,7 +7,7 @@ var filter_value_template = document.getElementById('filter-value-template');
 var filter_container = document.getElementById('filters');
 document.querySelector('#btn-save').addEventListener('click', SaveFilters);
 
-var filter = JSON.parse(fs.readFileSync(`settings/filter.json`));
+var filter = JSON.parse(fs.readFileSync(remote.app.getPath('userData') + '/Local Storage/filter.json'));
 
 // var filter = {
 //     layers: [
@@ -65,6 +65,7 @@ function PopuplateFilterInputs (_filter) {
             value_instance.querySelector('button').addEventListener('click', function () {removeValueField(layer, value);})
             entry_instance.querySelector('#filter-values').appendChild(value_instance);
         });
+
         filter_container.appendChild(entry_instance);
     });
 }
@@ -108,6 +109,7 @@ function SaveFilters () {
         _filter[layer].values = values;
         _filter[layer].geometrytype = geometry_type;
     }
+    
     // send filter to main process to save
     filter = _filter;
     ipcRenderer.send('filter', filter);

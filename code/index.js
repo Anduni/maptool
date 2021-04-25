@@ -11,7 +11,16 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
   app.quit();
 }
 
-const mainWindowConfig = JSON.parse(fs.readFileSync('settings/mainWindowConfig.json'));
+// const mainWindowConfig = JSON.parse(fs.readFileSync('settings/mainWindowConfig.json'));
+const mainWindowConfig = {
+  width: 480,
+  height: 720,
+  icon: "asset/icon.ico",
+  webPreferences: {
+      nodeIntegration: true,
+      enableRemoteModule : true
+  }
+}
 
 function init () {
   createWindow(mainWindowConfig);

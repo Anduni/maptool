@@ -1,5 +1,7 @@
+const { app } = require('electron');
 const fs = require('fs');
 const { sendEvent } = require('./events');
+const { DefaultConfig, DefaultSample, DefaultFilter } = require('./templates');
 
 module.exports = {
     Status : Status,
@@ -20,24 +22,26 @@ function SetStatus (id) {
     sendEvent('status', status);
 }
 
-var config = JSON.parse(fs.readFileSync('settings/config.json'));
+const userpath = app.getPath('userData');
+console.log(userpath);
+
+var config = JSON.parse(fs.readFileSync(userpath + '/Local Storage/config.json'));
 function Config () {return config;}
 function updateConfig (data) {
     config = data;
-    fs.writeFileSync('settings/config.json', JSON.stringify(data, null, 2));
+    fs.writeFileSync(userpath + '/Local Storage/config.json', JSON.stringify(data, null, 2));
 }
 
-var sample = JSON.parse(fs.readFileSync('settings/sample.json'));
+var sample = JSON.parse(fs.readFileSync(userpath + '/Local Storage/sample.json'));
 function Sample () {return sample;}
 function updateSample (data) {
     sample = data;
-    fs.writeFileSync('settings/sample.json', JSON.stringify(data, null, 2));
-    // console.log(sample);
+    fs.writeFileSync(userpath + '/Local Storage/sample.json', JSON.stringify(data, null, 2));
 }
 
-var filter = JSON.parse(fs.readFileSync('settings/filter.json'));
+var filter = JSON.parse(fs.readFileSync(userpath + '/Local Storage/filter.json'));
 function Filter () {return filter;}
 function updateFilter (data) {
     filter = data;
-    fs.writeFileSync(`settings/filter.json`, JSON.stringify(data, null, 2));
+    fs.writeFileSync(userpath + '/Local Storage/filter.json', JSON.stringify(data, null, 2));
 }

@@ -1,5 +1,5 @@
 const VectorTile = require("@mapbox/vector-tile/lib/vectortile");
-const { dialog } = require("electron");
+const { dialog, app } = require("electron");
 const { readFileSync, writeFile } = require("fs");
 const Pbf = require("pbf");
 const { toPath } = require("svg-points");
@@ -17,7 +17,7 @@ function sampleStack (stack) {
     var counter = 0;
     
     stack.forEach((tile) => {
-        var buffer = readFileSync(`data/buffer/${tile.x}_${tile.y}_${tile.z}.pbf`);
+        var buffer = readFileSync(app.getPath('userData') + `/Local Storage/buffer/${tile.x}_${tile.y}_${tile.z}.pbf`);
         parseTile(buffer).then((data) => {
             console.log('--starting extract');
             content = extract(data, tile, content);

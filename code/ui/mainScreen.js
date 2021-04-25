@@ -1,5 +1,5 @@
-const { ipcRenderer } = require('electron');
-const { readFileSync, writeFileSync } = require('original-fs');
+const { ipcRenderer, remote } = require('electron');
+const { readFileSync } = require('original-fs');
 
 var status = 0;
 
@@ -15,7 +15,8 @@ input_btn_load.addEventListener('click', collectInput);
 
 document.querySelector('#btn-settings').addEventListener('click', function() {ipcRenderer.send('settings');});
 
-var sample = JSON.parse(readFileSync('settings/sample.json'));
+
+var sample = JSON.parse(readFileSync(remote.app.getPath('userData') + '/Local Storage/sample.json'));
 
 input_start_x.value = sample.start.x;
 input_start_y.value = sample.start.y;
