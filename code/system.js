@@ -4,7 +4,6 @@ const { createStack } = require("./utilities/tiles");
 const { sendEvent } = require("./utilities/events");
 const { downloadTile } = require("./components/loader");
 const { sampleStack } = require("./components/sampler");
-const { readFileSync } = require("original-fs");
 
 function startSampleJob (data) {
     updateSample(data);
@@ -45,6 +44,6 @@ ipcMain.on('settings', (event) => {
     
     settingsWindow.loadFile('asset/views/settingsScreen.html');
     settingsWindow.setMenuBarVisibility(false);
-})
+});
 
 console.log('--init system');

@@ -1,4 +1,4 @@
-.panel {
+.filterpanel {
     height: 64px;
     width: 512px;
     border: 2px solid white;
@@ -23,7 +23,7 @@
     border-left: 3px dotted white;
 }
 
-#filters {
+#filter {
     display: flex;
     flex-direction: column;
     

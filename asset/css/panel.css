@@ -1,0 +1,69 @@
+body {
+    min-width: 512px;
+}
+
+
+.filter-container {
+    height: 66%;
+    width: 100%;
+    min-width: 720px;
+    max-width: 1080px;
+    font-size: 16px;
+    overflow: scroll;
+
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.layer-entry {
+    border: 2px solid white;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+
+    padding: 12px 0 12px 0;
+
+    margin-bottom: 32px;
+}
+
+.btn-add {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+
+    font-size: 18px;
+}
+
+.btn-edit {
+    width: 24px;
+    height: 24px;
+    background-color: white;
+    margin-left: 8px;
+}
+
+.btn-save {
+    height: 32px;
+    width: 128px;
+    padding: 0;
+    border: 2px solid white;
+    background-color: #00000000;
+    color: white;
+}
+
+.panel {
+    margin-bottom: 8px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.label {
+    display: flex;
+    flex-direction: row;
+}

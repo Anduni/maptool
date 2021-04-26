@@ -23,7 +23,7 @@
     "nsis": {
       "installerIcon": "asset/icon.ico",
       "uninstallerIcon": "asset/icon.ico",
-      "uninstallDisplayName": "Map Loader",
+      "uninstallDisplayName": "MapTool",
       "license": "license.txt",
       "oneClick": false,
       "allowToChangeInstallationDirectory": true
