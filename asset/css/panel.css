@@ -16,6 +16,9 @@ body {
     /* justify-content: center; */
     align-items: center;
 }
+.filter-container::-webkit-scrollbar {
+    display: none;
+}
 
 .layer-entry {
     border: 2px solid white;
@@ -23,9 +26,23 @@ body {
     display: flex;
     flex-direction: column;
 
-    padding: 12px 0 12px 0;
+    padding: 4px 0 4px 0;
 
-    margin-bottom: 32px;
+    margin-bottom: 16px;
+    background-color: #00000055;
+
+}
+
+.btn {
+    border: 2px solid white;
+    background-color: #00000000;
+    color: white;
+}
+
+.btn:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
 }
 
 .btn-add {
@@ -34,8 +51,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid white;
-
+    
     font-size: 18px;
 }
 
@@ -44,26 +60,90 @@ body {
     height: 24px;
     background-color: white;
     margin-left: 8px;
+
+    background: url(../img/icon_settings.png);
+    background-size: cover;
+    /* background-color: mediumorchid; */
+}
+.btn-edit:hover {
+    cursor: pointer;
 }
 
 .btn-save {
     height: 32px;
     width: 128px;
     padding: 0;
-    border: 2px solid white;
-    background-color: #00000000;
-    color: white;
+}
+
+.divider {
+    border-bottom: 1px solid white;
+    margin: 0 8px 0 8px;
 }
 
 .panel {
-    margin-bottom: 8px;
-
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
+    margin: 4px 8px 4px 8px;
+    /* background-color: mediumspringgreen; */
 }
 
-.label {
+.line {
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: space-between; */
+    /* margin: 0px 8px 0px 8px; */
+    flex-grow: 1;
+    /* background-color: aqua; */
+}
+
+.dropdown {    
+    /* layout */
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: right;
+    overflow: scroll;
+    
+    text-align: right;
+    margin-right: -32px;
+    
+    /* animated */
+    transition: 200ms ease;
+    max-height: 0px;
+    margin-top: 0px;
+    border-bottom: 1px solid #00000000;
+}
+.expand {
+    /* animated */
+    max-height: 150px;
+    margin-top: 12px;
+    border-bottom: 1px solid white;
+}
+.dropdown::-webkit-scrollbar {
+    display: none;
+}
+
+.dropdown-entry {
+    padding: 4px 32px 4px 0px;
+    
+    /* animated */
+    transition: 200ms;
+    border-bottom: 1px solid #ffffff10;
+}
+.dropdown-entry:hover {
+    /* background-color: #ffffff20; */
+    cursor: pointer;
+}
+.selected {
+    background-color: #00ffa033;
+}
+
+
+
+.label {
+    flex-grow: 1;
+
+    display: flex;
+    justify-content: space-between;
+
+    /* background-color: #f05; */
 }

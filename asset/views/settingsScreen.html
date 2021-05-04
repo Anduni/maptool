@@ -10,37 +10,87 @@
     <link rel="stylesheet" href="../css/background.css">
     <link rel="stylesheet" href="../css/panel.css">
 
-    <script defer src="../../code/ui/settingsScreen.js"></script>
+    <script defer src="../../code/ui/settingsScreenDynamic.js"></script>
 </head>
 
 <body style="color: white;">
     <div id="filters" class="filter-container">
         
-        <div class="layer-entry" style="flex-direction: column;">
+        <div class="layer-entry">
+
             <div class="panel">
-                <span class="label">layer</span>
-                <span class="label">{layer}<div class="btn-edit"></div></span>
+                <div class="line">
+                    <span class="label">layer</span>
+                    <span class="label">layer<div class="btn-edit" onclick="expand()"></div></span>
+                </div>
+                <div id="dropdown-1" class="drop expand">
+                    <span class="dropdown-entry">entry</span>
+                    <span class="dropdown-entry">entry</span>
+                    <span class="dropdown-entry">entry</span>
+                    <span class="dropdown-entry">entry</span>
+                    <span class="dropdown-entry">entry</span>
+                </div>
             </div>
+            	
+            <!-- <div class="divider"></div> -->
+
             <div class="panel">
-                <span class="label">geometry</span>
-                <span class="label">{type}<div class="btn-edit"></div></span>
+                <div class="line">
+                    <span class="label">geometry</span>
+                    <span class="label">type<div class="btn-edit"></div></span>
+                </div>
             </div>
+
+            <!-- <div class="divider"></div> -->
+            
             <div class="panel">
-                <span class="label">key</span>
-                <span class="label">{key}<div class="btn-edit"></div></span>
+                <div class="line">
+                    <span id="label" class="label">key</span>
+                    <span id="value" class="label">key<div class="btn-edit"></div></span>
+                </div>
             </div>
+
+            <!-- <div class="divider"></div> -->
+
             <div class="panel">
-                <span class="label">value</span>
-                <span class="label">{value}<div class="btn-edit"></div></span>
+                <div class="line">
+                    <span class="label">value</span>
+                    <span class="label">
+                        value <br> 
+                        value <br> 
+                        value <br>
+                        <div class="btn-edit"></div>
+                    </span>
+                </div>
             </div>
         </div>
 
-        <div class="btn-add">+</div>
+        <button class="btn btn-add">+</button>
+
+        <script>
+            var toggle = true;
+            const dropdown = document.getElementById('dropdown-1');
+            function expand () {
+                toggle = !toggle;
+                toggle ? 
+                    dropdown.classList.add('expand') :
+                    dropdown.classList.remove('expand');
+            }
+        </script>
 
     </div>
+    
+    
+    <div class="dropdown hidden">
+        <p>entry</p>
+        <p>long entry</p>
+        <p>very long entry</p>
+        <p>super mega ultra long entry</p>
+    </div>
+
 
     <hr style="width: 66%;">
-    <button id="btn-save" class="btn-save">SAVE</button>
+    <button id="btn-save" class="btn btn-save">SAVE</button>
 
 </body>
 

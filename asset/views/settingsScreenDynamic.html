@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>settings dynamic</title>
+    <link rel="stylesheet" href="../css/basic.css">
+    <link rel="stylesheet" href="../css/font.css">
+    <link rel="stylesheet" href="../css/filters.css">
+    <link rel="stylesheet" href="../css/background.css">
+    <link rel="stylesheet" href="../css/panel.css">
+
+    <script defer src="../../code/ui/settingsScreenDynamic.js"></script>
+</head>
+
+<body style="color: white;">
+    <div id="filters" class="filter-container">
+
+        
+            	
+        
+    </div>
+    <button class="btn btn-add">+</button>
+    
+    
+    <hr style="width: 66%;">
+    <button id="btn-save" class="btn btn-save">SAVE</button>
+
+</body>
+
+
+<template id="panel-template">
+    <div id='panel' class="panel">
+        
+        <div class="line">
+            <span class="label">
+                <key 
+                    id="key"
+                    key=""></key>
+                <value 
+                    id="value"
+                    value="null"
+                    multiselect="false"></value>
+            </span>
+            <div 
+                id="dropdown" 
+                class="dropdown" 
+                name="false"></div>
+        </div>
+        
+        <button 
+            id="btn-edit" 
+            class="btn-edit" 
+            ref="null"
+            onClick="onEdit(this)"></button>
+    </div>
+</template>
+
+<template id="dropdown-entry-template">
+    <span class="dropdown-entry"
+        selected="false"
+        multiselect="true"
+        ref="null"
+        onClick="onEntrySelected(this)"></span>
+</template>
+
+<template id="filter-entry-template">
+    <div id="filter-entry" class="layer-entry"></div>
+</template>
+
+
+</html>
