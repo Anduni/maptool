@@ -62,15 +62,46 @@ function createEntry (index) {
         var id = `filter_${index}_${panelname}`;
         
         var panel_instance = document.importNode(panel_template.content, true);
-        panel_instance.querySelector('#panel').id = id + '_panel';
+        var panel = panel_instance.querySelector('#panel')
+        
+        panel.id = id + '_panel';
+        panel.setAttribute('key', panelname);
+        panel.setAttribute('value', current_filter[panelname]);
+        
         panel_instance.querySelector('#btn-edit').ref = id;
-        panel_instance.querySelector('#key').textContent = panelname;
-        panel_instance.querySelector('#value').textContent = current_filter[panelname];
+        panel_instance.querySelector('#key').textContent = panel.getAttribute('key');
+        panel_instance.querySelector('#value').textContent = panel.getAttribute('value');
 
         var dropdown = panel_instance.querySelector('#dropdown');
         dropdown.id = id + '_dropdown';
 
-        source_content.forEach((entry) => {    
+        var sourceList = ['null'];
+        
+        // if(panelname == 'layer') {
+        //     sourceList = filter_schema.layer;
+        //     console.log(sourceList);
+        // }
+
+        switch (panelname) {
+            case 'layer':
+                sourceList = filter_schema.layer;
+                panel.setAttribute('multiselect', false);
+                break;
+            case 'geometry':
+                sourceList = filter_schema.geometrytype;
+                panel.setAttribute('multiselect', false);
+                break;
+            case 'key':
+                sourceList = filter_schema[current_filter.layer].keys;
+                panel.setAttribute('multiselect', false);
+                break;
+            case 'value':
+                sourceList = filter_schema[current_filter.layer].values[current_filter.key];
+                panel.setAttribute('multiselect', true);
+                break;
+        }
+
+        sourceList.forEach((entry) => {    
             var dropdown_entry_instance = document.importNode(dropdown_entry_template.content, true);
             dropdown_entry_instance.querySelector('span').ref = id;
             dropdown_entry_instance.querySelector('span').textContent = entry;
@@ -99,15 +130,13 @@ function newKeyDropdown (dropdown) {}
 function newValueDropdown (dropdown) {}
 
 
-
 function onEntrySelected (entry) {
     var id = entry.ref;
     var value = filter_container.querySelector(`#${id}_panel`).querySelector('#value');
-    // value.innerText = entry.textContent;
+    var panel = filter_container.querySelector(`#${id}_panel`);
 
-    let isMultiselect = entry.getAttribute('multiselect') == 'true';
+    let isMultiselect = panel.getAttribute('multiselect') == 'true';
     let isSelected = entry.getAttribute('selected') == 'true';
-
 
     if (isMultiselect) {
         entry.setAttribute('selected', !isSelected);
@@ -115,18 +144,27 @@ function onEntrySelected (entry) {
 
         // ## add entry to value list
         // ## update valuelist
-        let valuelist = value.getAttribute('value').split(',');
-        console.log(valuelist);
-        
-        isSelected ? valuelist.splice(valuelist.indexOf(entry.textContent), 1) : valuelist.push(entry.textContent);
 
-        value.setAttribute('value', valuelist);
-        value.innerText = value.getAttribute('value');
+        let valuelist = filter_container.querySelector(`#${id}_panel`).getAttribute('value').split(',');        
+        isSelected ? valuelist.splice(valuelist.indexOf(entry.textContent), 1) : valuelist.push(entry.textContent);
+        // console.log(valuelist);
+
+        panel.setAttribute('value', valuelist);
+
+        // ## better formating
+        
+        // var text = '';
+        // valuelist.forEach(element => {
+        //     text += element + '<br>';
+        // });
+        // value.innerHTML = text;
+
+        value.innerText = valuelist;
     }
     else {
         // close list
         filter_container.querySelector(`#${id}_dropdown`).classList.remove('expand');
-        filter_container.querySelector(`#${id}_dropdown`).setAttribute('value', false);
+        filter_container.querySelector(`#${id}_dropdown`).setAttribute('expand', false);
     
         // purge list
         resetDropdown(id);
@@ -139,7 +177,6 @@ function onEntrySelected (entry) {
     }
 }
 
-
 function resetDropdown (id) {
     let entries = filter_container.querySelector(`#${id}_dropdown`).children;
     for (i=0; i<entries.length; i++) {
@@ -148,13 +185,12 @@ function resetDropdown (id) {
     }
 }
 
-
 function onEdit (data) {
     var dropdown = filter_container.querySelector(`#${data.ref}_dropdown`);
-    var state = dropdown.getAttribute('value') == 'true';
+    var state = dropdown.getAttribute('expand') == 'true';
     state = !state;
     state ? dropdown.classList.add('expand') : dropdown.classList.remove('expand');
-    dropdown.setAttribute('value', state);
+    dropdown.setAttribute('expand', state);
 }
 
 
