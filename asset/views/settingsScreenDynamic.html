@@ -9,23 +9,23 @@
     <link rel="stylesheet" href="../css/filters.css">
     <link rel="stylesheet" href="../css/background.css">
     <link rel="stylesheet" href="../css/panel.css">
+    <link rel="stylesheet" href="../css/icons.css">
 
     <script defer src="../../code/ui/settingsScreenDynamic.js"></script>
 </head>
 
 <body style="color: white;">
-    <div id="filters" class="filter-container">
-
-        
-            	
-        
-    </div>
-    <button class="btn btn-add">+</button>
+    <div id="filters" class="filter-container"></div>
     
+    <icon class="icon-done green"></icon>
+    <icon class="icon-upload orange"></icon>
+    <icon class="icon-warning red"></icon>
+    <icon class="icon-locked gray"></icon>
+
+    <button class="btn btn-add">+</button>
     
     <hr style="width: 66%;">
     <button id="btn-save" class="btn btn-save">SAVE</button>
-
 </body>
 
 
@@ -57,18 +57,15 @@
             id="btn-edit" 
             class="btn-edit" 
             ref="null"
-            onClick="onEdit(this)"></button>
+            onClick="onEdit(this)">
+        </button>
     </div>
 </template>
 
 <template id="dropdown-entry-template">
     <span class="dropdown-entry"
         selected="false"
-        multiselect="false"
-        ref="null"
-
         value="null"
-
         onClick="onEntrySelected(this)"></span>
 </template>
 
