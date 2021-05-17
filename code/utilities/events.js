@@ -1,10 +1,16 @@
 const { BrowserWindow } = require("electron");
 
 module.exports = {
-    sendEvent : sendEvent
+    sendEvent : sendEvent,
+    updateMainWindow : updateMainWindow,
+}
+
+var mainWindow;
+function updateMainWindow (window) {
+    mainWindow = window;
 }
 
 function sendEvent(event, data) 
 {
-    BrowserWindow.getFocusedWindow().webContents.send(event, data);
+    mainWindow.webContents.send(event, data);
 }

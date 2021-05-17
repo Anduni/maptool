@@ -95,12 +95,12 @@ button:focus {
   background-color: white;
 }
 
-.locked {
+.btn-locked {
   border: 2px solid slategray;
   color: slategray;
 }
 
-.locked:hover {
+.btn-locked:hover {
   cursor: default !important;
   color: slategray !important;
   background-color: #00000000 !important;

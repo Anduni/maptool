@@ -1,17 +1,15 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
-const fs = require('fs');
+const { updateMainWindow } = require('./utilities/events');
 
 require('./system');
 require('./utilities/service');
-
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
   app.quit();
 }
 
-// const mainWindowConfig = JSON.parse(fs.readFileSync('settings/mainWindowConfig.json'));
 const mainWindowConfig = {
   width: 480,
   height: 720,
@@ -23,7 +21,8 @@ const mainWindowConfig = {
 }
 
 function init () {
-  createWindow(mainWindowConfig);
+  updateMainWindow(createWindow(mainWindowConfig));
+
 }
 
 // FUNCTIONS

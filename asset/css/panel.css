@@ -63,10 +63,19 @@ body {
 
     background: url(../img/icon_settings.png);
     background-size: cover;
-    /* background-color: mediumorchid; */
+
 }
 .btn-edit:hover {
     cursor: pointer;
+}
+
+.panel-locked .btn-edit{
+    filter: brightness(0.33) !important;
+    pointer-events: none !important;
+}
+
+.panel-locked .btn-edit:hover{
+    cursor: default !important;
 }
 
 .btn-save {
@@ -122,6 +131,10 @@ body {
     display: none;
 }
 
+value {
+    text-align: right;
+}
+
 .dropdown-entry {
     padding: 4px 32px 4px 0px;
     
@@ -139,7 +152,6 @@ body {
 }
 
 
-
 .label {
     flex-grow: 1;
 
@@ -147,4 +159,8 @@ body {
     justify-content: space-between;
 
     /* background-color: #f05; */
+}
+
+.panel-locked {
+    color: slategray;
 }

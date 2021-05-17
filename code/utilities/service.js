@@ -1,5 +1,6 @@
-const { app } = require('electron');
+const { app, Main } = require('electron');
 const fs = require('fs');
+const events = require('./events');
 const { sendEvent } = require('./events');
 const { DefaultConfig, DefaultSample, DefaultFilter } = require('./templates');
 
@@ -12,7 +13,7 @@ module.exports = {
     updateSample : updateSample,
     Filter : Filter,
     updateFilter : updateFilter,
-
+    
     UserDataPath : UserDataPath,
 }
 

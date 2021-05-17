@@ -46,73 +46,94 @@ var filter = {
 
 }
 
-function createEntry (index) {
-    var current_layer = filter.layers[index];
 
-    var current_filter = {
-        layer : current_layer,
-        geometry : filter[current_layer].geometrytype,
-        key : filter[current_layer].key,
-        value : filter[current_layer].values,
-    }
+var test_filter = {
+    layer: 'road',
+    geometry: 'path',
+    key: 'class',
+    value: [
+        'footway',
+    ]
+}
 
-    var filter_entry_instance = document.importNode(filter_entry_template.content, true);
+var empty_filter = {
+    layer: '',
+    geometry: '',
+    key: '',
+    value: []
+}
+
+
+var dependencies = {
+    layer: null,
+    geometry: null,
+    key : 'layer',
+    value: 'key'
+}
+
+function createEntry (index, filterdata = empty_filter) {
+    var filterId = `filter${index}`;
+    var filter_entry = document.importNode(filter_entry_template.content, true).querySelector('#filter-entry');
+    filter_entry.id = filterId;
+
+    setFilterData(filter_entry, filterdata);
     
     panels.forEach((panelname) => {
-        var id = `filter_${index}_${panelname}`;
+        var panelId = `${filterId}_${panelname}`;
         
-        var panel_instance = document.importNode(panel_template.content, true);
-        var panel = panel_instance.querySelector('#panel')
-        
-        panel.id = id + '_panel';
-        panel.setAttribute('key', panelname);
-        panel.setAttribute('value', current_filter[panelname]);
-        
-        panel_instance.querySelector('#btn-edit').ref = id;
-        panel_instance.querySelector('#key').textContent = panel.getAttribute('key');
-        panel_instance.querySelector('#value').textContent = panel.getAttribute('value');
+        var panel = document.importNode(panel_template.content, true).querySelector('#panel');
+        panel.id = panelId;
 
-        var dropdown = panel_instance.querySelector('#dropdown');
-        dropdown.id = id + '_dropdown';
+        panel.querySelector('#key').textContent = panelname;
 
-        var sourceList = ['null'];
-        
-        // if(panelname == 'layer') {
-        //     sourceList = filter_schema.layer;
-        //     console.log(sourceList);
-        // }
+        panel.setAttribute('filter', filterId);
+        panel.setAttribute('panelname', panelname);
+        panel.setAttribute('value', filterdata[panelname]);
+        panel.setAttribute('dependency', dependencies[panelname]);
 
-        switch (panelname) {
-            case 'layer':
-                sourceList = filter_schema.layer;
-                panel.setAttribute('multiselect', false);
-                break;
-            case 'geometry':
-                sourceList = filter_schema.geometrytype;
-                panel.setAttribute('multiselect', false);
-                break;
-            case 'key':
-                sourceList = filter_schema[current_filter.layer].keys;
-                panel.setAttribute('multiselect', false);
-                break;
-            case 'value':
-                sourceList = filter_schema[current_filter.layer].values[current_filter.key];
-                panel.setAttribute('multiselect', true);
-                break;
+        panel.querySelector('#btn-edit').ref = panelId;
+        panel.querySelector('#dropdown').ref = panelId;
+
+        var sourceList;
+        if(dependencies[panelname] == null || filterdata[dependencies[panelname]] != '') 
+        sourceList = getSourceList(panelname, filterdata);
+
+        panel.querySelector('#dropdown').setAttribute('sourcelist', sourceList);
+
+        // make value panel a multiselect one
+        if (panelname == 'value') {
+            panel.setAttribute('multiselect', true);
         }
 
-        sourceList.forEach((entry) => {    
-            var dropdown_entry_instance = document.importNode(dropdown_entry_template.content, true);
-            dropdown_entry_instance.querySelector('span').ref = id;
-            dropdown_entry_instance.querySelector('span').textContent = entry;
-
-            dropdown.appendChild(dropdown_entry_instance);
-        }); 
-        filter_entry_instance.querySelector('#filter-entry').appendChild(panel_instance);
+        filter_entry.appendChild(panel);
     });
 
-    filter_container.appendChild(filter_entry_instance);
+    console.log(filter_entry);
+    filter_container.appendChild(filter_entry);
+
+   
+    refreshFilter(filter_entry);
+
+    // ## PRELIMINARY FILL CALL
+    // drawPanel(filter_entry.querySelector(`#${filterId}_layer`));
+    // drawPanel(filter_entry.querySelector(`#${filterId}_geometry`));
+    // drawPanel(filter_entry.querySelector(`#${filterId}_key`));
+    // drawPanel(filter_entry.querySelector(`#${filterId}_value`));
 }
+
+function getSourceList (panelname, filterdata) {
+    switch (panelname) {
+        case 'layer':
+            return filter_schema.layer;
+        case 'geometry':
+            return filter_schema.geometrytype;
+        case 'key':
+            return filter_schema[filterdata.layer].key;
+        case 'value':
+            return filter_schema[filterdata.layer].value[filterdata.key];
+    }
+}
+
 
 function newLayerDropdown (dropdown, id) {
     var dropdown_content = filter_schema.layer;
@@ -125,73 +146,205 @@ function newLayerDropdown (dropdown, id) {
     }); 
 }
 
-function newGeometrytypeDropdown (dropdown) {}
-function newKeyDropdown (dropdown) {}
-function newValueDropdown (dropdown) {}
-
 
 function onEntrySelected (entry) {
-    var id = entry.ref;
-    var value = filter_container.querySelector(`#${id}_panel`).querySelector('#value');
-    var panel = filter_container.querySelector(`#${id}_panel`);
+    var panel = filter_container.querySelector(`#${entry.parentNode.ref}`);
+    let filterdata = getFilterData(panel.parentNode);
 
-    let isMultiselect = panel.getAttribute('multiselect') == 'true';
-    let isSelected = entry.getAttribute('selected') == 'true';
+    let multiselect = panel.getAttribute('multiselect') == 'true';
+    let selected = entry.getAttribute('selected') == 'true';
+    let entryValue = entry.getAttribute('value');
 
-    if (isMultiselect) {
-        entry.setAttribute('selected', !isSelected);
-        isSelected ? entry.classList.remove('selected') : entry.classList.add('selected');
+    let valueList = panel.getAttribute('value');
+    if (multiselect) valueList = valueList.split(',');
 
-        // ## add entry to value list
-        // ## update valuelist
-
-        let valuelist = filter_container.querySelector(`#${id}_panel`).getAttribute('value').split(',');        
-        isSelected ? valuelist.splice(valuelist.indexOf(entry.textContent), 1) : valuelist.push(entry.textContent);
-        // console.log(valuelist);
-
-        panel.setAttribute('value', valuelist);
-
-        // ## better formating
-        
-        // var text = '';
-        // valuelist.forEach(element => {
-        //     text += element + '<br>';
-        // });
-        // value.innerHTML = text;
-
-        value.innerText = valuelist;
+    if (multiselect) {
+        selected ? valueList.splice(valueList.indexOf(entryValue), 1) : valueList.push(entryValue);
     }
-    else {
-        // close list
-        filter_container.querySelector(`#${id}_dropdown`).classList.remove('expand');
-        filter_container.querySelector(`#${id}_dropdown`).setAttribute('expand', false);
+    else {  
+        valueList = entryValue;
+        collapseDropdown(panel.querySelector('#dropdown'));
+    }
+
+    // if entry hasnt changed, return
+    if (!multiselect && selected) return;
     
-        // purge list
-        resetDropdown(id);
-        entry.setAttribute('selected', true);
-        entry.classList.add('selected');
-        
-        // ## replace value with entry value
-        value.setAttribute('value', entry.textContent);
-        value.innerText = entry.textContent;
-    }
+    // reset panels that have dependencies to this panel
+    panels.forEach((panelname) => {
+        if (dependencies[panelname] == panel.getAttribute('panelname')) {
+            filterdata[panelname] = '';
+        }
+    })
+
+    // ## update filterdata
+    filterdata[panel.getAttribute('panelname')] = valueList;
+    setFilterData(panel.parentNode, filterdata);
+
+    refreshFilter(panel.parentNode);
 }
 
-function resetDropdown (id) {
-    let entries = filter_container.querySelector(`#${id}_dropdown`).children;
+
+
+function redrawPanel (panel) {
+    // var panel = filter_container.querySelector(`#${panelID}`);
+    panel.querySelector('#value').innerText = panel.getAttribute('value');
+    console.log(panel);
+
+    var filterEntry = panel.parentElement;
+    filterEntry.setAttribute(panel.getAttribute('panel'), panel.getAttribute('value'));
+
+    redrawFilter(panel.parentElement);
+
+    // ## redraw all panel components
+}
+function redrawFilter (filterEntry) {
+    var filterdata = getFilterData(filterEntry);
+    console.log(filterdata);
+
+    panels.forEach((panelname) => {
+        var sourceList = [];
+
+        if(panelname == 'layer' || panelname == 'geometry') return;
+
+        var panel = filterEntry.querySelector(`#${filterEntry.id}_${panelname}`);
+
+        switch (panelname) {
+            case 'key':
+                if (filterdata.layer == 'none') {
+                    sourceList = [];
+                    panel.setAttribute('locked', true);
+                    panel.classList.add('panel-locked');
+                }
+                else {
+                    sourceList = filter_schema[filterdata.layer].key;
+                    console.log(filterdata.layer);
+                    panel.setAttribute('locked', false);
+                    panel.classList.remove('panel-locked');
+                } 
+                break;
+
+            case 'value':
+                if (filterdata.key == 'none') {
+                    sourceList = [];
+                    panel.setAttribute('locked', true);
+                    panel.classList.add('panel-locked');
+                }
+                else {
+                    sourceList = filter_schema[filterdata.layer].value[filterdata.key];
+                    panel.setAttribute('locked', false);
+                    panel.classList.remove('panel-locked');
+                } 
+                break;
+        }
+
+        var dropdown = panel.querySelector(`#dropdown`);
+        console.log(sourceList);
+        fillDropdown(dropdown);
+    });
+}
+
+
+function refreshFilter (filterEntry) {
+    var filterdata = getFilterData(filterEntry);
+    panels.forEach((panelname) => {
+        let panel = filterEntry.querySelector(`#${filterEntry.id}_${panelname}`);
+        let locked = filterdata[dependencies[panelname]] == '' && dependencies[panelname] != null;
+    
+        if (!locked) {
+            var sourceList = getSourceList(panel.getAttribute('panelname'), filterdata);
+            panel.querySelector('#dropdown').setAttribute('sourcelist', sourceList);
+        }
+
+        panel.setAttribute('value', filterdata[panelname]);
+        panel.setAttribute('locked', locked);
+        drawPanel(panel);
+    });
+}
+
+function drawPanel (panel) {
+    var valueList = panel.getAttribute('value').split(',');
+    let locked = panel.getAttribute('locked') == 'true';
+    
+    panel.querySelector('#value').innerHTML = ''; // clear content
+    
+    if (locked) {
+        panel.classList.add('panel-locked');
+        collapseDropdown(panel.querySelector('#dropdown'));
+    }
+    else {
+        panel.classList.remove('panel-locked');
+        valueList.forEach((entry) => {
+            var node = document.createElement('div');
+            node.textContent = entry;
+            panel.querySelector('#value').appendChild(node);
+        });
+    }
+
+    fillDropdown(panel.querySelector('#dropdown'), valueList);
+}
+
+
+function onEdit (data) {
+    var dropdown = filter_container.querySelector(`#${data.ref} #dropdown`); 
+    var state = !(dropdown.getAttribute('expand') == 'true');
+    state ? expandDropdown(dropdown) : collapseDropdown(dropdown);
+}
+
+
+// ## DROPDOWN HELPERS
+
+function expandDropdown(dropdown) {
+    dropdown.setAttribute('expand', true);
+    dropdown.classList.add('expand');
+}
+
+function collapseDropdown(dropdown) {
+    dropdown.setAttribute('expand', false);
+    dropdown.classList.remove('expand');
+}
+
+function fillDropdown (dropdown, valueList) {
+    var sourceList = dropdown.getAttribute('sourcelist').split(',');    
+    dropdown.innerHTML = '';
+    // refill dropdown with new content
+    sourceList.forEach((entry) => {
+        var dropdown_entry = document.importNode(dropdown_entry_template.content, true).querySelector('span');
+        dropdown_entry.setAttribute('value', entry);
+        dropdown_entry.textContent = entry;
+        if (valueList.indexOf(entry) > -1) {
+            dropdown_entry.classList.add('selected');
+            dropdown_entry.setAttribute('selected', true);
+        }
+
+        dropdown.appendChild(dropdown_entry);
+    });
+}
+
+function resetDropdown (dropdown) {
+    let entries = dropdown.children;
     for (i=0; i<entries.length; i++) {
         entries[i].classList.remove('selected');
         entries[i].setAttribute('selected', false);
     }
 }
 
-function onEdit (data) {
-    var dropdown = filter_container.querySelector(`#${data.ref}_dropdown`);
-    var state = dropdown.getAttribute('expand') == 'true';
-    state = !state;
-    state ? dropdown.classList.add('expand') : dropdown.classList.remove('expand');
-    dropdown.setAttribute('expand', state);
+
+// ## FILTER HELPERS
+
+function setFilterData (filterEntry, filterdata) {
+    panels.forEach((panelname) => {
+        filterEntry.setAttribute(panelname, filterdata[panelname]);
+    });
 }
+
+function getFilterData (filterEntry) {
+    var filterdata = {};
+    panels.forEach((panelname) => {
+        filterdata[panelname] = filterEntry.getAttribute(panelname);
+    });
+    return filterdata;
+}
+
 
 
 var panels = [
@@ -220,11 +373,11 @@ const filter_schema = {
     ],
 
     road : {
-        keys: [
+        key: [
             "class", 
             "type"
         ],
-        values : {
+        value : {
             class : [
                 "path",
                 "footway",
@@ -238,10 +391,10 @@ const filter_schema = {
     },
 
     building : {
-        keys: [
+        key: [
             "type"
         ],
-        values : {
+        value : {
             type : [
                 "residential",
                 "industrial",
@@ -250,11 +403,11 @@ const filter_schema = {
     },
 
     water : {
-        keys: [
+        key: [
             "class", 
             "type"
         ],
-        values : {
+        value : {
             class : [
                 "river",
                 "lake",

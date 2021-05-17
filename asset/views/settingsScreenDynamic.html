@@ -31,29 +31,26 @@
 
 <template id="panel-template">
     <div 
-        id='panel' 
         class="panel"
+        
+        id='panel' 
         multiselect="false"
-
-        layer=""
-        geometry=""
-        key=""
+        locked="false"
+        
+        filter=""
+        panelname=""
         value="">
         
         <div class="line">
             <span class="label">
-                <key 
-                    id="key"
-                    key=""></key>
-                <value 
-                    id="value"
-                    value="null"
-                    multiselect="false"></value>
+                <key id="key"></key>
+                <value id="value"></value>
             </span>
             <div 
                 id="dropdown" 
                 class="dropdown" 
-                expand="false"></div>
+                expand="false"
+                sourcelist=""></div>
         </div>
         
         <button 
@@ -67,13 +64,23 @@
 <template id="dropdown-entry-template">
     <span class="dropdown-entry"
         selected="false"
-        multiselect="true"
+        multiselect="false"
         ref="null"
+
+        value="null"
+
         onClick="onEntrySelected(this)"></span>
 </template>
 
 <template id="filter-entry-template">
-    <div id="filter-entry" class="layer-entry"></div>
+    <div 
+        id="filter-entry" 
+        class="layer-entry"
+        
+        layer=""
+        geometry=""
+        key=""
+        value=""></div>
 </template>
 
 

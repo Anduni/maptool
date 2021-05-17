@@ -55,7 +55,7 @@ function setProgress (progress, smooth=false)
 function setStatus (id) {status = id;}
 
 function setLoadButton (available) {
-    available ? input_btn_load.classList.remove('locked') : input_btn_load.classList.add('locked');
+    available ? input_btn_load.classList.remove('btn-locked') : input_btn_load.classList.add('btn-locked');
 }
 
 //#region WORKING EVENT HANDLER
