@@ -15,12 +15,20 @@
 </head>
 
 <body style="color: white;">
-    <div id="filters" class="filter-container"></div>
+
+        <div class="filter-container">
+            <div id="filters" class="filter-content"></div>
+            
+            <div class="icons">
+                <icon class="icon-done green"></icon>
+                <icon class="icon-warning red"></icon>
+                <icon class="icon-edit white"></icon>
+                <icon class="icon-locked gray"></icon>
+            </div>
+
+        </div>
+        
     
-    <icon class="icon-done green"></icon>
-    <icon class="icon-upload orange"></icon>
-    <icon class="icon-warning red"></icon>
-    <icon class="icon-locked gray"></icon>
 
     <button class="btn btn-add">+</button>
     
@@ -43,22 +51,22 @@
         
         <div class="line">
             <span class="label">
+                <icon id="status" class="icon-done green"></icon>
                 <key id="key"></key>
                 <value id="value"></value>
             </span>
-            <div 
+            <div
                 id="dropdown" 
                 class="dropdown" 
                 expand="false"
                 sourcelist=""></div>
         </div>
         
-        <button 
+        <icon
             id="btn-edit" 
-            class="btn-edit" 
+            class="icon-edit white"
             ref="null"
-            onClick="onEdit(this)">
-        </button>
+            onClick="onEdit(this)"></icon>
     </div>
 </template>
 
@@ -72,7 +80,7 @@
 <template id="filter-entry-template">
     <div 
         id="filter-entry" 
-        class="layer-entry"
+        class="filter-entry"
         
         layer=""
         geometry=""

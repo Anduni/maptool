@@ -146,14 +146,13 @@ function onEntrySelected (entry) {
     let entryValue = entry.getAttribute('value');
 
     let valueList = panel.getAttribute('value');
-    if (multiselect) valueList = valueList.split(',');
-
-    if (multiselect) 
-    {
+    
+    if (multiselect) {
+        valueList = valueList.split(',');
+        if (valueList[0] == '') valueList = [];
         selected ? valueList.splice(valueList.indexOf(entryValue), 1) : valueList.push(entryValue);
     }
-    else 
-    {  
+    else {
         valueList = entryValue;
         collapseDropdown(panel.querySelector('#dropdown'));
     }
@@ -171,8 +170,9 @@ function onEntrySelected (entry) {
     // ## update filterdata
     filterdata[panel.getAttribute('panelname')] = valueList;
     setFilterData(panel.parentNode, filterdata);
-
     refreshFilter(panel.parentNode);
+
+    console.log(filterdata);
 }
 
 
@@ -195,6 +195,7 @@ function refreshFilter (filterEntry) {
 
 function drawPanel (panel) {
     var valueList = panel.getAttribute('value').split(',');
+    var valueEmpty = valueList[0] == ''; 
     let locked = panel.getAttribute('locked') == 'true';
     
     panel.querySelector('#value').innerHTML = ''; // clear content
@@ -202,6 +203,8 @@ function drawPanel (panel) {
     if (locked) {
         panel.classList.add('panel-locked');
         collapseDropdown(panel.querySelector('#dropdown'));
+        setIcon(panel.querySelector('#btn-edit'), 'icon-locked gray');
+        setIcon(panel.querySelector('#status'), 'none');
     }
     else {
         panel.classList.remove('panel-locked');
@@ -210,6 +213,15 @@ function drawPanel (panel) {
             node.textContent = entry;
             panel.querySelector('#value').appendChild(node);
         });
+
+        if (valueEmpty) {
+            setIcon(panel.querySelector('#status'), 'icon-warning red');
+        }
+        else {
+            setIcon(panel.querySelector('#status'), 'icon-done green');
+        }
+
+        setIcon(panel.querySelector('#btn-edit'), 'icon-edit white');
     }
 
     fillDropdown(panel.querySelector('#dropdown'), valueList);
@@ -220,6 +232,13 @@ function onEdit (data) {
     var dropdown = filter_container.querySelector(`#${data.ref} #dropdown`); 
     var state = !(dropdown.getAttribute('expand') == 'true');
     state ? expandDropdown(dropdown) : collapseDropdown(dropdown);
+}
+
+function setIcon (icon, classlist) {
+    icon.classList = '';
+    classlist.split(' ').forEach((classEntry) => {
+        icon.classList.add(classEntry);
+    })
 }
 
 // ## DROPDOWN HELPERS

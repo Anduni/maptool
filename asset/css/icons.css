@@ -2,43 +2,41 @@
     src: url();
 }
 
-.icon-warning {background-image: url(../svg/warning_white_24dp.svg);}
-.icon-locked {background-image: url(../svg/lock_white_24dp.svg); }
-.icon-done {background-image: url(../svg/done_white_24dp.svg);}
-.icon-locked {background-image: url(../svg/lock_white_24dp.svg);}
 
 .icon-close {background-image: url(../svg/close_white_24dp.svg);}
 .icon-dark-mode {background-image: url(../svg/dark_mode_white_24dp.svg);}
 .icon-delete {background-image: url(../svg/delete_white_24dp.svg);}
 .icon-disabled {background-image: url(../svg/disabled_by_default_white_24dp.svg);}
-.icon-upload {background-image: url(../svg/drive_folder_upload_white_24dp.svg);}
 
-.icon-locked {
-    background-image: url(../svg/lock_white_24dp.svg);
-}
-.icon-download-done {
-    background-image: url(../svg/file_download_done_white_24dp.svg);
-}
+
+.icon-locked {background-image: url(../svg/lock.svg);}
+.icon-done {background-image: url(../svg/done.svg);}
+.icon-warning {background-image: url(../svg/warning.svg);}
+.icon-edit {background-image: url(../svg/edit.svg);}
 
 
 icon {
-    width: 64px;
-    height: 64px;
+    width: 24px;
+    height: 24px;
     background-size: cover;
 }
 
 .red {
-    filter: invert(27%) sepia(66%) saturate(100) hue-rotate(330deg); 
+    filter: invert(73%) sepia(66%) saturate(100) hue-rotate(330deg);
 }
 
 .green {
-    filter: invert(27%) sepia(25%) saturate(100) hue-rotate(120deg); 
+    filter: invert(73%) sepia(25%) saturate(100) hue-rotate(120deg); 
 }
 
 .orange {
-    filter: sepia(33%) saturate(33) hue-rotate(340deg); 
+    filter: invert(100%) sepia(33%) saturate(33) hue-rotate(340deg);
 }
 
 .gray {
-    filter: invert(50%) sepia(50%) hue-rotate(160deg) saturate(2); 
+    filter: invert(50%) sepia(50%) hue-rotate(160deg) saturate(2);
+}
+
+.white {
+    filter: invert(100%);
 }
